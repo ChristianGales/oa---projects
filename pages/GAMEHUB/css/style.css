@@ -1,0 +1,2749 @@
+/* =====================================
+   GAMEHUB+ RED & BLACK EDITION
+   MAIN STYLESHEET
+===================================== */
+
+:root {
+    --bg: #080808;
+    --bg-light: #111111;
+    --panel: #171717;
+    --panel-light: #202020;
+    --red: #e50914;
+    --red-light: #ff303b;
+    --white: #ffffff;
+    --muted: #aaaaaa;
+    --border: rgba(255,255,255,0.10);
+    --shadow: 0 10px 35px rgba(0,0,0,0.45);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+/* =====================================
+   BACKGROUND VIDEO
+===================================== */
+
+.background-container {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -2;
+    background: #050505;
+}
+
+.background-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.background-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.95),
+            rgba(0,0,0,0.72),
+            rgba(0,0,0,0.88)
+        );
+}
+
+/* =====================================
+   GENERAL ELEMENTS
+===================================== */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+h1 span,
+h2 span,
+.brand-logo span,
+.auth-card h1 span,
+.main-footer h2 span {
+    color: var(--red);
+}
+
+p {
+    line-height: 1.7;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--red-light);
+    outline-offset: 3px;
+}
+
+/* =====================================
+   MUSIC PLAYER
+===================================== */
+
+.music-player {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    background: rgba(15,15,15,0.92);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(12px);
+}
+
+.music-player button {
+    color: var(--white);
+    background: transparent;
+    padding: 9px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.music-player button:hover {
+    background: var(--red);
+}
+
+/* =====================================
+   LOGIN AND REGISTER
+===================================== */
+
+.auth-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 18px;
+    position: relative;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 430px;
+    padding: 38px 30px;
+    text-align: center;
+    background: rgba(15,15,15,0.91);
+    border: 1px solid rgba(229,9,20,0.35);
+    border-radius: 18px;
+    box-shadow:
+        0 0 35px rgba(229,9,20,0.12),
+        var(--shadow);
+    backdrop-filter: blur(15px);
+}
+
+.auth-card h1 {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.auth-subtitle {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+}
+
+.auth-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.auth-tabs button {
+    flex: 1;
+    padding: 12px;
+    color: var(--muted);
+    background: var(--panel-light);
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.auth-tabs button.active {
+    background: var(--red);
+    color: var(--white);
+}
+
+#authForm {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#authForm input {
+    width: 100%;
+    padding: 15px;
+    color: white;
+    background: #222;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+}
+
+#authForm input:focus {
+    border-color: var(--red);
+}
+
+#authForm input::placeholder {
+    color: #888;
+}
+
+#authSubmit {
+    padding: 15px;
+    margin-top: 5px;
+    color: white;
+    background: var(--red);
+    border-radius: 8px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+#authSubmit:hover {
+    background: var(--red-light);
+    box-shadow: 0 0 20px rgba(229,9,20,0.4);
+}
+
+#authMessage {
+    margin-top: 15px;
+    color: var(--red-light);
+    font-size: 13px;
+}
+
+.auth-note {
+    color: #777;
+    font-size: 11px;
+    margin-top: 20px;
+}
+
+
+/* =====================================
+   GAMEHUB+ PREMIUM NAVIGATION
+===================================== */
+
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    width: 100%;
+    min-height: 75px;
+    padding: 15px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.97);
+    border-bottom: 2px solid var(--red);
+    box-shadow: 0 5px 20px rgba(229, 9, 20, 0.12);
+    backdrop-filter: blur(15px);
+}
+
+.brand-logo {
+    font-size: 24px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.main-nav button,
+.header-actions button {
+    color: #ffffff;
+    background: var(--red);
+    border: 1px solid var(--red);
+    padding: 11px 15px;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease;
+    box-shadow: 0 3px 10px rgba(229, 9, 20, 0.15);
+}
+
+.main-nav button:hover,
+.header-actions button:hover {
+    color: #ffffff;
+    background: var(--red-light);
+    border-color: var(--red-light);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 18px rgba(229, 9, 20, 0.4);
+}
+
+.main-nav button.active {
+    color: #ffffff;
+    background: #a90009;
+    border-color: #ff303b;
+    box-shadow:
+        0 0 0 1px rgba(255, 48, 59, 0.3),
+        0 0 16px rgba(229, 9, 20, 0.45);
+}
+
+.main-nav button:active,
+.header-actions button:active {
+    transform: scale(0.96);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+
+/* =====================================
+   MAIN CONTENT
+===================================== */
+
+.main-content {
+    width: 100%;
+    min-height: 70vh;
+    position: relative;
+    z-index: 1;
+}
+
+.page-section {
+    width: 100%;
+    max-width: 1400px;
+    min-height: 65vh;
+    margin: auto;
+    padding: 65px 6%;
+    animation: pageEnter 0.4s ease;
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-section > h1 {
+    font-size: clamp(28px, 5vw, 48px);
+    margin-bottom: 15px;
+}
+
+.page-section > p {
+    color: var(--muted);
+    margin-bottom: 30px;
+}
+
+/* =====================================
+   HOME HERO
+===================================== */
+
+#home {
+    padding-top: 90px;
+}
+
+.hero-content {
+    max-width: 850px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-label {
+    color: var(--red-light);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 {
+    font-size: clamp(38px, 7vw, 75px);
+    line-height: 1.12;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+    display: block;
+    color: var(--red);
+}
+
+.hero-content > p:not(.hero-label) {
+    max-width: 620px;
+    color: #ccc;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.hero-content > button {
+    width: fit-content;
+    padding: 15px 28px;
+    color: white;
+    background: var(--red);
+    border-radius: 6px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.hero-content > button:hover {
+    background: var(--red-light);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(229,9,20,0.3);
+}
+
+/* =====================================
+   FEATURED SECTION
+===================================== */
+
+.featured-section {
+    margin-top: 50px;
+}
+
+.featured-section h2 {
+    font-size: 25px;
+    border-left: 4px solid var(--red);
+    padding-left: 15px;
+    margin-bottom: 25px;
+}
+
+#featuredGames,
+#gamesContainer,
+#subscriptionContainer,
+#coinStoreContainer,
+#miniGamesContainer,
+#cartContainer,
+#checkoutContainer,
+#paymentContainer,
+#profileContainer,
+#aboutContainer {
+    width: 100%;
+}
+
+/* =====================================
+   GENERAL CARD STYLE
+===================================== */
+
+.game-card,
+.subscription-card,
+.coin-card,
+.mini-game-card,
+.cart-card,
+.profile-card,
+.payment-card,
+.order-card,
+.info-card {
+    padding: 22px;
+    background: rgba(20,20,20,0.94);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: 0.3s;
+}
+
+.game-card:hover,
+.subscription-card:hover,
+.coin-card:hover,
+.mini-game-card:hover {
+    border-color: rgba(229,9,20,0.65);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(229,9,20,0.12);
+}
+
+.game-card h3,
+.subscription-card h3,
+.coin-card h3,
+.mini-game-card h3 {
+    margin-bottom: 12px;
+}
+
+.game-card p,
+.subscription-card p,
+.coin-card p,
+.mini-game-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* =====================================
+   GENERAL BUTTONS
+===================================== */
+
+.primary-button,
+.secondary-button,
+.danger-button {
+    padding: 12px 20px;
+    border-radius: 7px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.primary-button {
+    color: white;
+    background: var(--red);
+}
+
+.primary-button:hover {
+    background: var(--red-light);
+}
+
+.secondary-button {
+    color: white;
+    background: #303030;
+    border: 1px solid var(--border);
+}
+
+.secondary-button:hover {
+    background: #444;
+}
+
+.danger-button {
+    color: white;
+    background: #8b0000;
+}
+
+.danger-button:hover {
+    background: #b00000;
+}
+
+/* =====================================
+   FOOTER
+===================================== */
+
+.main-footer {
+    position: relative;
+    z-index: 1;
+    padding: 35px 20px;
+    text-align: center;
+    background: rgba(5,5,5,0.95);
+    border-top: 1px solid var(--border);
+}
+
+.main-footer h2 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.main-footer p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+/* =====================================
+   SCROLLBAR
+===================================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #090909;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8b0000;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--red);
+}
+
+/* =====================================
+   END OF MAIN STYLESHEET
+===================================== */
+
+/* =====================================
+   GAMEHUB+ BUTTON COMPATIBILITY FIX
+===================================== */
+
+.btn-primary {
+    background: var(--primary-red, #e50914);
+    color: #ffffff;
+    border: 1px solid var(--primary-red, #e50914);
+}
+
+.btn-primary:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background: #991b1b;
+    color: #ffffff;
+    border: 1px solid #dc2626;
+}
+
+.btn-primary,
+.btn-danger {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+
+/* =====================================
+   GAMEHUB+ GAME IMAGE SIZE FIX
+===================================== */
+
+#featuredGames .game-card > img,
+#gamesContainer .game-card > img {
+    display: block;
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+/* =====================================
+   GAMEHUB+ PROFILE CARD DESIGN
+===================================== */
+
+#profileContainer .profile-card {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto 25px;
+    padding: 30px;
+    text-align: center;
+    background: rgba(20, 20, 20, 0.96);
+    border: 1px solid rgba(229, 9, 20, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
+}
+
+#profileContainer .profile-avatar {
+    width: 125px;
+    height: 125px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 3px solid #e50914;
+    border-radius: 50%;
+    background: #202020;
+    font-size: 48px;
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.25);
+}
+
+#profileContainer .profile-avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#profileContainer .profile-info {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 25px 0;
+    text-align: left;
+}
+
+#profileContainer .profile-info > div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 15px;
+    background: #202020;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 9px;
+}
+
+#profileContainer .profile-info span {
+    color: #aaaaaa;
+    font-size: 12px;
+}
+
+#profileContainer .profile-info strong {
+    color: #ffffff;
+    overflow-wrap: anywhere;
+}
+
+#profileContainer .profile-card button {
+    margin: 5px;
+}
+
+#profileContainer .profile-photo-input {
+    display: none;
+}
+
+@media screen and (max-width: 480px) {
+    #profileContainer .profile-card {
+        padding: 22px 16px;
+    }
+
+    #profileContainer .profile-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =====================================
+   GAMEHUB+ PROMOTIONS & COMMERCIAL
+===================================== */
+
+.promotions-section {
+    width: 100%;
+    margin-bottom: 45px;
+}
+
+.promotions-section > h2,
+.commercial-section > h2 {
+    font-size: 25px;
+    border-left: 4px solid var(--red);
+    padding-left: 15px;
+    margin-bottom: 22px;
+}
+
+.promotions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.promotion-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.promotion-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.promotion-card:hover img {
+    transform: scale(1.04);
+}
+
+.promotion-card button {
+    display: block;
+    width: calc(100% - 30px);
+    margin: 12px 15px 15px;
+    padding: 13px;
+    color: white;
+    background: var(--red);
+    border-radius: 7px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.promotion-card button:hover {
+    background: var(--red-light);
+    transform: translateY(-2px);
+}
+
+/* COMMERCIAL VIDEO */
+
+.commercial-section {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.commercial-section > p {
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+.commercial-video {
+    display: block;
+    width: 100%;
+    max-height: 520px;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background: #000;
+    border: 1px solid rgba(229, 9, 20, 0.45);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+/* END PROMOTIONAL CSS */
+
+
+
+/* =====================================
+   GAMEHUB+ PREMIUM PAYMENT DESIGN
+===================================== */
+
+#paymentContainer {
+    max-width: 650px;
+    width: 100%;
+    margin: 25px auto;
+}
+
+#paymentContainer .payment-card {
+    position: relative;
+    overflow: hidden;
+    padding: 25px;
+    background: linear-gradient(145deg, #171717, #080808);
+    border: 2px solid #e50914;
+    border-radius: 18px;
+    box-shadow:
+        0 0 25px rgba(229, 9, 20, 0.15),
+        0 15px 40px rgba(0, 0, 0, 0.55);
+}
+
+#paymentContainer .payment-card h2 {
+    text-align: center;
+    font-size: clamp(25px, 4vw, 36px);
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+#paymentContainer .payment-card h2::after {
+    content: "";
+    display: block;
+    width: 75px;
+    height: 4px;
+    margin: 15px auto;
+    background: #e50914;
+    border-radius: 5px;
+}
+
+#paymentContainer .payment-total {
+    text-align: center;
+    color: #bbbbbb;
+    font-size: 17px;
+    margin: 20px 0 28px;
+}
+
+#paymentContainer .payment-total strong {
+    color: #ff303b;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+#paymentContainer .payment-methods {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin: 25px 0 30px;
+}
+
+#paymentContainer .payment-option {
+    min-height: 100px;
+    padding: 22px 15px;
+    border: 2px solid transparent;
+    border-radius: 13px;
+    color: #ffffff;
+    font-size: clamp(19px, 3vw, 25px);
+    font-weight: 900;
+    letter-spacing: 1px;
+    box-shadow: 0 7px 20px rgba(0,0,0,0.35);
+    transition: 0.25s ease;
+}
+
+#paymentContainer .gcash-option {
+    background: linear-gradient(135deg, #0879d9, #0055a8);
+    border-color: #168bff;
+}
+
+#paymentContainer .maya-option {
+    background: linear-gradient(135deg, #087447, #03472c);
+    border-color: #0b9b60;
+}
+
+#paymentContainer .gcash-option:hover,
+#paymentContainer .maya-option:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.15);
+}
+
+#paymentContainer .payment-option.active {
+    border: 3px solid #ffffff;
+    box-shadow:
+        0 0 0 3px #e50914,
+        0 0 22px rgba(229, 9, 20, 0.35);
+    transform: translateY(-3px);
+}
+
+#paymentContainer .payment-instructions {
+    padding: 25px;
+    text-align: center;
+    background: #101010;
+    border: 1px solid rgba(229, 9, 20, 0.65);
+    border-radius: 13px;
+}
+
+#paymentContainer .payment-instructions h3 {
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: 900;
+    margin-bottom: 12px;
+}
+
+#paymentContainer .payment-instructions > p {
+    color: #aaaaaa;
+    font-size: 14px;
+    margin: 12px 0;
+}
+
+#paymentContainer .qr-placeholder {
+    width: 190px;
+    min-height: 170px;
+    margin: 22px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #202020;
+    border: 2px dashed #e50914;
+    border-radius: 12px;
+}
+
+#paymentContainer .qr-placeholder span {
+    color: #ffffff;
+    font-size: 27px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+#paymentContainer .qr-placeholder small {
+    color: #aaaaaa;
+    font-size: 11px;
+}
+
+#paymentContainer .payment-instructions .btn-primary {
+    display: block;
+    width: 100%;
+    min-height: 58px;
+    margin-top: 22px;
+    padding: 16px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #e50914, #a90009);
+    border: 1px solid #ff303b;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 18px rgba(229, 9, 20, 0.25);
+    transition: 0.25s ease;
+}
+
+#paymentContainer .payment-instructions .btn-primary:hover {
+    background: #ff303b;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.4);
+}
+
+#paymentContainer .payment-instructions .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+@media screen and (max-width: 600px) {
+    #paymentContainer {
+        margin: 20px auto;
+    }
+
+    #paymentContainer .payment-card {
+        padding: 23px 16px;
+    }
+
+    #paymentContainer .payment-methods {
+        gap: 12px;
+    }
+
+    #paymentContainer .payment-option {
+        min-height: 85px;
+        padding: 15px 8px;
+        font-size: 19px;
+    }
+
+    #paymentContainer .payment-instructions {
+        padding: 20px 14px;
+    }
+
+    #paymentContainer .payment-total strong {
+        font-size: 22px;
+    }
+}
+
+/* END PREMIUM PAYMENT DESIGN */
+
+/* PASSWORD EYE TOGGLE */
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 55px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 21px;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.password-toggle:hover {
+    color: #ff303b;
+}
+
+
+/* EXPLORE GAMES BUTTON SPACING */
+
+.game-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.game-card-actions button {
+    flex: 1 1 120px;
+    min-height: 44px;
+    margin: 0;
+}
+
+.game-ctto-note {
+    display: block;
+    margin-top: 13px;
+    color: #aaaaaa;
+    font-size: 11px;
+    text-align: center;
+}
+
+
+/* GAME PURCHASE CONFIRMATION */
+
+.game-confirmation-card {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid var(--red);
+    border-radius: 15px;
+    padding: 25px;
+    color: #ffffff;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(229, 9, 20, 0.3);
+    overflow: hidden;
+}
+
+.game-confirmation-card h2,
+.game-confirmation-card h3,
+.game-confirmation-card p,
+.game-confirmation-card strong {
+    color: #ffffff;
+}
+
+.game-confirmation-card .order-details {
+    background: rgba(0, 0, 0, 0.65);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+    margin: 18px 0;
+}
+
+.game-confirmation-card button {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    min-height: 45px;
+    color: #ffffff;
+    background: var(--red);
+    border: 1px solid var(--red);
+    border-radius: 8px;
+    font-weight: 800;
+}
+
+
+.game-confirmation-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.confirmation-bg-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+
+/* =====================================
+   GAMEHUB+ PREMIUM SHOPPING CART DESIGN
+===================================== */
+
+#cartContainer {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+#cartContainer .cart-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin: 25px 0;
+}
+
+#cartContainer .cart-item {
+    display: grid;
+    grid-template-columns: 115px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    min-width: 0;
+    padding: 16px;
+    background: rgba(20, 20, 20, 0.96);
+    border: 1px solid rgba(229, 9, 20, 0.35);
+    border-radius: 13px;
+    box-shadow: var(--shadow);
+}
+
+#cartContainer .cart-item > img {
+    display: block;
+    width: 115px !important;
+    height: 90px !important;
+    max-width: 115px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 9px;
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+#cartContainer .cart-item-info {
+    min-width: 0;
+}
+
+#cartContainer .cart-item-info h3 {
+    color: #ffffff;
+    font-size: 17px;
+    margin-bottom: 8px;
+    overflow-wrap: anywhere;
+}
+
+#cartContainer .cart-item-info p {
+    color: #aaaaaa;
+    font-size: 13px;
+    margin: 3px 0;
+}
+
+#cartContainer .cart-item-info p:first-of-type {
+    color: #ff303b;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+#cartContainer .cart-item .btn-danger {
+    min-width: 85px;
+    padding: 11px 15px;
+}
+
+#cartContainer .cart-summary {
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto 0;
+    padding: 24px;
+    background: rgba(20, 20, 20, 0.97);
+    border: 1px solid rgba(229, 9, 20, 0.5);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+}
+
+#cartContainer .cart-summary h3 {
+    font-size: 21px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+}
+
+#cartContainer .cart-summary p {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    color: #cccccc;
+    margin-bottom: 20px;
+}
+
+#cartContainer .cart-summary strong {
+    color: #ff303b;
+    font-size: 19px;
+}
+
+#cartContainer .cart-summary button {
+    display: block;
+    width: 100%;
+    min-height: 46px;
+    margin-top: 12px;
+}
+
+/* MOBILE CART */
+
+@media screen and (max-width: 600px) {
+    #cartContainer .cart-item {
+        grid-template-columns: 85px minmax(0, 1fr);
+        gap: 12px;
+        padding: 12px;
+    }
+
+    #cartContainer .cart-item > img {
+        width: 85px !important;
+        height: 85px !important;
+        max-width: 85px;
+    }
+
+    #cartContainer .cart-item-info h3 {
+        font-size: 14px;
+    }
+
+    #cartContainer .cart-item-info p {
+        font-size: 12px;
+    }
+
+    #cartContainer .cart-item-info p:first-of-type {
+        font-size: 15px;
+    }
+
+    #cartContainer .cart-item .btn-danger {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    #cartContainer .cart-summary {
+        padding: 20px 16px;
+    }
+}
+
+/* END PREMIUM SHOPPING CART DESIGN */
+
+/* =====================================
+   GAMEHUB+ ABOUT HERO SECTION
+===================================== */
+
+.about-hero-card {
+    position: relative;
+    width: 100%;
+    padding: 40px 25px;
+    margin: 25px auto;
+    background: linear-gradient(135deg, #171717, #080808);
+    border: 1px solid #e50914;
+    border-radius: 18px;
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.18);
+    overflow: hidden;
+}
+
+.about-hero-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.about-tag {
+    display: inline-block;
+    color: #ff303b;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.about-hero-content h2 {
+    color: #ffffff;
+    font-size: 32px;
+    margin-bottom: 18px;
+}
+
+.about-hero-content h2 span {
+    color: #e50914;
+}
+
+.about-hero-content > p {
+    color: #cccccc;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.about-hero-highlight {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 28px 0;
+    padding: 20px;
+    background: #202020;
+    border-left: 4px solid #e50914;
+    border-radius: 12px;
+}
+
+.about-hero-highlight > span {
+    font-size: 38px;
+}
+
+.about-hero-highlight h3 {
+    color: #ffffff;
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.about-hero-highlight p {
+    color: #bbbbbb;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.about-project-note {
+    display: inline-block;
+    color: #ff303b;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+.about-hero-content .about-disclaimer {
+    font-size: 12px;
+    color: #888888;
+    margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+    .about-hero-card {
+        padding: 28px 18px;
+    }
+
+    .about-hero-content h2 {
+        font-size: 25px;
+    }
+
+    .about-hero-highlight {
+        padding: 15px;
+    }
+}
+
+
+/* =====================================
+   GAMEHUB+ BUSINESS PROMOTIONAL SECTION
+===================================== */
+
+.about-promo-section {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 30px;
+    align-items: center;
+    margin: 30px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, #171717, #090909);
+    border: 1px solid #e50914;
+    border-radius: 20px;
+    box-shadow: 0 0 22px rgba(229, 9, 20, 0.16);
+    overflow: hidden;
+}
+
+.about-promo-image {
+    width: 100%;
+    min-height: 350px;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 2px solid #8f1018;
+    background: #202020;
+}
+
+.about-promo-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+    object-fit: cover;
+}
+
+.about-promo-content {
+    width: 100%;
+}
+
+.about-promo-content h2 {
+    color: #ffffff;
+    font-size: 30px;
+    line-height: 1.35;
+    margin: 12px 0 18px;
+}
+
+.about-promo-content h2 span {
+    color: #ff303b;
+}
+
+.about-promo-content > p {
+    color: #eeeeee;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 14px;
+}
+
+.about-promo-content > h3 {
+    color: #ff303b;
+    font-size: 19px;
+    margin: 28px 0 16px;
+}
+
+.about-benefit-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 17px;
+    margin-bottom: 13px;
+    background: #202020;
+    border: 1px solid #353535;
+    border-left: 4px solid #e50914;
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+.about-benefit-card:hover {
+    border-color: #e50914;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(229, 9, 20, 0.15);
+}
+
+.about-benefit-card > span {
+    font-size: 27px;
+    flex-shrink: 0;
+}
+
+.about-benefit-card h4 {
+    color: #ffffff;
+    font-size: 14px;
+    margin: 0 0 7px;
+}
+
+.about-benefit-card p {
+    color: #cccccc;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.about-promo-footer {
+    margin-top: 25px;
+    padding: 22px;
+    text-align: center;
+    background: #260b0d;
+    border: 1px solid #e50914;
+    border-radius: 14px;
+}
+
+.about-promo-footer h3 {
+    color: #ffffff;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.about-promo-footer p {
+    color: #eeeeee;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 13px;
+}
+
+.about-promo-footer strong {
+    color: #ff303b;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 768px) {
+    .about-promo-section {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 18px;
+    }
+
+    .about-promo-image,
+    .about-promo-image img {
+        min-height: 250px;
+    }
+
+    .about-promo-content h2 {
+        font-size: 25px;
+    }
+
+    .about-benefit-card {
+        padding: 14px;
+    }
+}
+
+
+/* =====================================
+   GAMEHUB+ FULL WIDTH ABOUT PROMOTION
+===================================== */
+
+.about-promo-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0;
+    gap: 0;
+    background: #090909;
+    border: 2px solid #e50914;
+    border-radius: 18px;
+    box-shadow: 0 0 25px rgba(229, 9, 20, 0.22);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* FULL BANNER IMAGE */
+
+.about-promo-image {
+    width: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: #090909;
+    overflow: hidden;
+}
+
+.about-promo-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    object-fit: contain;
+    object-position: center;
+    border: none;
+    border-radius: 0;
+}
+
+/* CONTENT BELOW BANNER */
+
+.about-promo-content {
+    width: 100%;
+    padding: 28px;
+    box-sizing: border-box;
+}
+
+/* BENEFIT CARDS */
+
+.about-benefit-card {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* PROMOTIONAL FOOTER */
+
+.about-promo-footer {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+    .about-promo-section {
+        width: 100%;
+        margin: 20px auto;
+        border-radius: 12px;
+    }
+
+    .about-promo-image img {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        object-fit: contain;
+    }
+
+    .about-promo-content {
+        padding: 18px;
+    }
+}
+   
+/* =====================================
+   GAMEHUB+ VERTICAL BENEFIT CARDS
+===================================== */
+
+.about-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+    align-items: stretch;
+}
+
+.about-benefit-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 12px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: #1b1b1b;
+    border: 1px solid #383838;
+    border-bottom: 3px solid #e50914;
+    border-radius: 15px;
+    transition: transform 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.about-benefit-card:hover {
+    transform: translateY(-4px);
+    border-color: #e50914;
+    box-shadow: 0 8px 20px rgba(229, 9, 20, 0.18);
+}
+
+.about-benefit-image {
+    width: 100%;
+    height: 170px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #101010;
+}
+
+.about-benefit-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.about-benefit-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 15px 5px 7px;
+    text-align: center;
+}
+
+.about-benefit-content h4 {
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 0 0 10px;
+}
+
+.about-benefit-content p {
+    color: #cccccc;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+    .about-benefits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .about-benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .about-benefit-card {
+        padding: 12px;
+    }
+
+    .about-benefit-image {
+        height: 190px;
+    }
+
+    .about-benefit-content {
+        padding: 15px 8px 8px;
+    }
+
+    .about-benefit-content h4 {
+        font-size: 16px;
+    }
+
+    .about-benefit-content p {
+        font-size: 14px;
+    }
+}
+
+
+
+/* =====================================
+   GAMEHUB+ MINI GAMES CARDS
+===================================== */
+
+.mini-games-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.mini-game-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    padding: 24px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #1c1c1c, #090909);
+    border: 1px solid #383838;
+    border-radius: 16px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+    transition: 0.3s ease;
+}
+
+.mini-game-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #e50914;
+}
+
+.mini-game-card:hover {
+    transform: translateY(-6px);
+    border-color: #e50914;
+    box-shadow: 0 10px 25px rgba(229, 9, 20, 0.18);
+}
+
+.mini-game-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    margin-bottom: 18px;
+    background: #30090c;
+    border: 1px solid #e50914;
+    border-radius: 14px;
+    font-size: 34px;
+}
+
+.mini-game-category {
+    color: #ff4b55;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.mini-game-card h3 {
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: 800;
+    margin: 0 0 10px;
+}
+
+.mini-game-card p {
+    color: #bdbdbd;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 18px;
+}
+
+.mini-game-reward {
+    color: #ffd166;
+    font-size: 13px;
+    font-weight: 800;
+    margin-top: auto;
+    margin-bottom: 18px;
+}
+
+.mini-game-play {
+    width: 100%;
+    min-height: 44px;
+    background: #e50914;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.mini-game-play:hover {
+    background: #ff303b;
+    transform: scale(1.02);
+}
+
+@media (max-width: 900px) {
+    .mini-games-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 550px) {
+    .mini-games-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .mini-game-card {
+        padding: 20px;
+    }
+}
+
+
+
+/* =====================================
+   GAMEHUB+ MINI GAME SCREENS
+===================================== */
+
+.mini-game-screen {
+    width: 100%;
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 22px;
+    background: linear-gradient(145deg, #171717, #080808);
+    border: 1px solid #e50914;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(229, 9, 20, 0.12);
+}
+
+.mini-game-screen-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-bottom: 18px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #383838;
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.mini-game-back {
+    padding: 10px 16px;
+    color: #ffffff;
+    background: #292929;
+    border: 1px solid #e50914;
+    border-radius: 8px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.mini-game-back:hover {
+    background: #e50914;
+}
+
+.mini-game-inner-card {
+    padding: 25px;
+    background: #111111;
+    border: 1px solid #333333;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.mini-game-inner-card h2 {
+    color: #ffffff;
+    font-size: 23px;
+    margin: 15px 0;
+}
+
+.mini-game-inner-card p {
+    color: #bbbbbb;
+    line-height: 1.6;
+}
+
+.mini-game-choices {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.mini-game-choice {
+    width: 100%;
+    padding: 15px;
+    color: #ffffff;
+    background: #202020;
+    border: 1px solid #444444;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.mini-game-choice:hover {
+    background: #e50914;
+    border-color: #ff303b;
+}
+
+.mini-game-score {
+    margin-top: 20px;
+    padding: 14px;
+    color: #ffffff;
+    background: #30090c;
+    border: 1px solid #e50914;
+    border-radius: 9px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+/* BASKETBALL */
+
+.basketball-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.basketball-stats div {
+    padding: 13px 5px;
+    background: #202020;
+    border: 1px solid #444444;
+    border-radius: 9px;
+}
+
+.basketball-stats small {
+    display: block;
+    color: #aaaaaa;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.basketball-stats strong {
+    display: block;
+    color: #ff303b;
+    font-size: 25px;
+    margin-top: 5px;
+}
+
+.basketball-court {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 210px;
+    margin: 20px 0;
+    overflow: hidden;
+    background: linear-gradient(180deg, #242424, #101010);
+    border: 2px solid #e50914;
+    border-radius: 12px;
+}
+
+.basketball-hoop,
+.basketball-player {
+    font-size: 65px;
+    animation: miniGameBounce 1.5s infinite ease-in-out;
+}
+
+.basketball-shoot {
+    width: 100%;
+    max-width: 300px;
+    padding: 17px;
+    margin-top: 15px;
+    color: #ffffff;
+    background: #e50914;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.basketball-shoot:hover {
+    background: #ff303b;
+    transform: scale(1.03);
+}
+
+.basketball-shoot:active {
+    transform: scale(0.96);
+}
+
+.mini-game-hint {
+    color: #999999;
+    font-size: 12px;
+    margin-top: 18px;
+}
+
+/* PUZZLE */
+
+.puzzle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px;
+    width: 100%;
+    max-width: 390px;
+    margin: 25px auto;
+}
+
+.puzzle-tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    min-width: 0;
+    color: #ffffff;
+    background: linear-gradient(145deg, #292929, #151515);
+    border: 2px solid #e50914;
+    border-radius: 12px;
+    font-size: clamp(28px, 7vw, 48px);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.puzzle-tile:hover,
+.puzzle-tile.selected {
+    background: #500b10;
+    border-color: #ff5962;
+    transform: scale(0.96);
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.35);
+}
+
+/* RESULTS */
+
+.mini-game-result {
+    padding: 35px 22px;
+}
+
+.mini-game-result-icon {
+    font-size: 65px;
+    margin-bottom: 15px;
+    animation: miniGameBounce 1.5s infinite ease-in-out;
+}
+
+@keyframes miniGameBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+ 
+/* =====================================
+   GAMEHUB+ COIN STORE DESIGN
+===================================== */
+
+.coin-balance-card {
+    position: relative;
+    overflow: hidden;
+    padding: 30px 20px;
+    margin: 20px 0 35px;
+    text-align: center;
+    background: linear-gradient(135deg, #35080c, #151515 65%);
+    border: 1px solid #e50914;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(229, 9, 20, 0.15);
+}
+
+.coin-balance-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.coin-store-label {
+    color: #ff555d;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.coin-balance-card h2 {
+    color: #ffffff;
+    margin: 12px 0;
+    font-size: 22px;
+}
+
+.coin-balance {
+    color: #ff303b;
+    font-size: clamp(35px, 8vw, 52px);
+    font-weight: 900;
+    margin: 10px 0;
+}
+
+.coin-balance-card p {
+    color: #aaaaaa;
+    font-size: 13px;
+}
+
+/* COIN PROMOTIONS */
+
+.coin-promotions {
+    margin: 35px 0;
+}
+
+.coin-section-heading {
+    margin-bottom: 22px;
+}
+
+.coin-section-heading span {
+    color: #ff303b;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.coin-section-heading h2 {
+    color: #ffffff;
+    font-size: 25px;
+    margin: 8px 0;
+}
+
+.coin-section-heading p {
+    color: #aaaaaa;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.coin-packages-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.coin-package-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 22px 15px;
+    text-align: center;
+    background: linear-gradient(145deg, #202020, #101010);
+    border: 1px solid #383838;
+    border-radius: 15px;
+    transition: 0.25s;
+}
+
+.coin-package-card:hover {
+    transform: translateY(-5px);
+    border-color: #e50914;
+    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.15);
+}
+
+.coin-package-label {
+    padding: 6px 12px;
+    color: #ffffff;
+    background: #8f1018;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.coin-package-icon {
+    margin: 15px 0 5px;
+    font-size: 42px;
+}
+
+.coin-package-card h3 {
+    color: #ffffff;
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.coin-package-amount {
+    color: #ff303b;
+    font-size: 30px;
+    font-weight: 900;
+    margin: 8px 0;
+}
+
+.coin-package-amount small {
+    display: block;
+    color: #aaaaaa;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.coin-package-price {
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: 800;
+    margin: 12px 0 18px;
+}
+
+.coin-package-card .btn-primary {
+    width: 100%;
+    padding: 12px 8px;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+/* COIN HISTORY */
+
+.coin-history {
+    margin: 35px 0;
+    padding: 22px;
+    background: #151515;
+    border: 1px solid #333333;
+    border-radius: 15px;
+}
+
+.coin-history h3 {
+    color: #ffffff;
+    margin-bottom: 18px;
+}
+
+.coin-history > p {
+    color: #aaaaaa;
+}
+
+.coin-history-item {
+    padding: 14px 0;
+    border-bottom: 1px solid #333333;
+}
+
+.coin-history-item:last-child {
+    border-bottom: none;
+}
+
+.coin-history-item strong {
+    color: #ff303b;
+    font-size: 15px;
+}
+
+.coin-history-item p {
+    color: #dddddd;
+    margin: 6px 0;
+    font-size: 13px;
+}
+
+.coin-history-item small {
+    color: #888888;
+    font-size: 11px;
+}
+
+
+ 
+/* =====================================
+   GAMEHUB+ PREMIUM GAMING PROFILE
+===================================== */
+
+#profileContainer {
+    width: 100%;
+    padding: 5px 0;
+}
+
+/* MAIN PROFILE CARD */
+
+#profileContainer .profile-card {
+    position: relative;
+    width: 100%;
+    max-width: 540px;
+    margin: 15px auto 30px;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+    background: linear-gradient(145deg, #171717, #080808);
+    border: 1px solid #e50914;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* GAMING BANNER */
+
+.profile-gaming-banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 95px;
+    padding: 18px 22px;
+    overflow: hidden;
+    background:
+        linear-gradient(120deg, #4a080d, #160608 60%, #080808);
+    border-bottom: 2px solid #e50914;
+}
+
+.profile-banner-tag {
+    color: #ff555d;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.profile-banner-icon {
+    font-size: 42px;
+    opacity: 0.85;
+}
+
+/* AVATAR */
+
+.profile-main {
+    position: relative;
+    padding: 0 20px 22px;
+}
+
+.profile-avatar-frame {
+    width: 116px;
+    height: 116px;
+    margin: -48px auto 13px;
+    padding: 5px;
+    position: relative;
+    z-index: 2;
+    background: #080808;
+    border: 3px solid #e50914;
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 4px rgba(229, 9, 20, 0.15),
+        0 0 22px rgba(229, 9, 20, 0.4);
+}
+
+#profileContainer .profile-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: radial-gradient(circle, #3b0a0e, #111111);
+    border: 2px solid #393939;
+    border-radius: 50%;
+    font-size: 43px;
+}
+
+#profileContainer .profile-avatar-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-avatar-default {
+    font-size: 43px;
+}
+
+.profile-username {
+    color: #ffffff;
+    font-size: 23px;
+    font-weight: 900;
+    overflow-wrap: anywhere;
+    margin: 8px 0 5px;
+}
+
+.profile-subtitle {
+    color: #ff303b;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 17px;
+}
+
+.profile-photo-button {
+    width: 100%;
+    max-width: 230px;
+    padding: 11px 14px;
+    border: 1px solid #ff303b;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+/* PROFILE INFORMATION */
+
+#profileContainer .profile-info {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+    margin: 0;
+    padding: 0 20px 20px;
+    text-align: left;
+}
+
+#profileContainer .profile-info-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    min-width: 0;
+    min-height: 78px;
+    padding: 13px;
+    background: linear-gradient(145deg, #202020, #111111);
+    border: 1px solid #383838;
+    border-left: 3px solid #e50914;
+    border-radius: 9px;
+}
+
+#profileContainer .profile-info-item span {
+    color: #ff555d;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+}
+
+#profileContainer .profile-info-item strong {
+    color: #ffffff;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+/* PROFILE BUTTONS */
+
+.profile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    padding: 17px 20px 20px;
+    background: #101010;
+    border-top: 1px solid #383838;
+}
+
+.profile-actions button {
+    width: 100%;
+    min-height: 45px;
+    margin: 0;
+    border-radius: 8px;
+    font-weight: 900;
+}
+
+.profile-orders-button {
+    background: #242424;
+    border: 1px solid #e50914;
+    color: #ffffff;
+}
+
+.profile-orders-button:hover {
+    background: #39090d;
+}
+
+.profile-logout-button {
+    background: #8f080e;
+    border: 1px solid #e50914;
+}
+
+.profile-logout-button:hover {
+    background: #e50914;
+}
+
+/* LOGOUT CONFIRMATION */
+
+.profile-logout-confirmation {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    margin: 20px auto 30px;
+    padding: 5px;
+}
+
+.profile-logout-confirmation[hidden] {
+    display: none !important;
+}
+
+.profile-logout-dialog {
+    padding: 25px 20px;
+    text-align: center;
+    background: linear-gradient(145deg, #1d1d1d, #080808);
+    border: 2px solid #e50914;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(229, 9, 20, 0.22);
+}
+
+.profile-logout-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 13px;
+    background: #35090d;
+    border: 1px solid #e50914;
+    border-radius: 50%;
+    font-size: 30px;
+}
+
+.profile-logout-label {
+    color: #ff303b;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.profile-logout-dialog h2 {
+    color: #ffffff;
+    font-size: 24px;
+    margin: 12px 0;
+}
+
+.profile-logout-dialog p {
+    color: #bbbbbb;
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+.profile-logout-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-logout-buttons button {
+    width: 100%;
+    min-height: 45px;
+    border-radius: 8px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    transition: 0.2s ease;
+}
+
+.profile-logout-yes {
+    color: #ffffff;
+    background: #e50914;
+    border: 1px solid #ff303b;
+}
+
+.profile-logout-yes:hover {
+    background: #ff303b;
+}
+
+.profile-logout-no {
+    color: #ffffff;
+    background: #252525;
+    border: 1px solid #555555;
+}
+
+.profile-logout-no:hover {
+    background: #383838;
+    border-color: #e50914;
+}
+
+/* ORDER HISTORY */
+
+#profileContainer .order-history {
+    width: 100%;
+    max-width: 700px;
+    margin: 25px auto;
+    padding: 20px;
+    background: #111111;
+    border: 1px solid #e50914;
+    border-radius: 13px;
+}
+
+#profileContainer .order-history h3 {
+    color: #ffffff;
+    margin-bottom: 17px;
+}
+
+#profileContainer .order-history-item {
+    padding: 15px;
+    margin-bottom: 12px;
+    background: #1c1c1c;
+    border: 1px solid #383838;
+    border-left: 3px solid #e50914;
+    border-radius: 9px;
+    overflow-wrap: anywhere;
+}
+
+#profileContainer .order-history-item:last-child {
+    margin-bottom: 0;
+}
+
+#profileContainer .order-history-item h4 {
+    color: #ffffff;
+    margin: 8px 0;
+}
+
+#profileContainer .order-history-item p {
+    color: #cccccc;
+    font-size: 13px;
+    margin: 5px 0;
+}
+
+#profileContainer .order-history-item strong {
+    color: #ff303b;
+}
+
+#profileContainer .order-history-item small {
+    color: #999999;
+}
+
+/* MOBILE PROFILE */
+
+@media screen and (max-width: 480px) {
+    #profileContainer .profile-card {
+        max-width: 100%;
+        border-radius: 13px;
+    }
+
+    .profile-gaming-banner {
+        min-height: 80px;
+        padding: 15px;
+    }
+
+    .profile-avatar-frame {
+        width: 105px;
+        height: 105px;
+        margin-top: -43px;
+    }
+
+    .profile-username {
+        font-size: 21px;
+    }
+
+    #profileContainer .profile-info {
+        gap: 9px;
+        padding: 0 13px 16px;
+    }
+
+    #profileContainer .profile-info-item {
+        min-height: 75px;
+        padding: 11px 9px;
+    }
+
+    #profileContainer .profile-info-item span {
+        font-size: 9px;
+    }
+
+    #profileContainer .profile-info-item strong {
+        font-size: 13px;
+    }
+
+    .profile-actions {
+        padding: 15px 13px;
+    }
+
+    .profile-logout-dialog {
+        padding: 22px 16px;
+    }
+}
+
+/* END PREMIUM GAMING PROFILE */
+
+
+  
+
+/* =====================================
+   GAMEHUB+ LOGOUT POPUP MODAL
+===================================== */
+
+.profile-logout-confirmation {
+    position: fixed !important;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+    height: 100dvh;
+    margin: 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(6px);
+    animation: logoutFadeIn 0.2s ease;
+}
+
+.profile-logout-confirmation[hidden] {
+    display: none !important;
+}
+
+.profile-logout-dialog {
+    width: 100%;
+    max-width: 380px;
+    padding: 28px 22px;
+    background: linear-gradient(145deg, #202020, #080808);
+    border: 2px solid #e50914;
+    border-radius: 17px;
+    box-shadow: 0 0 35px rgba(229, 9, 20, 0.3);
+    animation: logoutPopup 0.25s ease;
+}
+
+@keyframes logoutFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes logoutPopup {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* END LOGOUT POPUP */
+

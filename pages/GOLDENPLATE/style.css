@@ -1,0 +1,443 @@
+/* =================================
+   THE GOLDEN PLATE
+   RESTAURANT & BAR WEBSITE
+================================= */
+
+/* 1. GENERAL SETTINGS */
+
+:root {
+    --gold: #d4af37;
+    --light-gold: #f5d77a;
+    --black: #080808;
+    --dark: #141414;
+    --gray: #bdbdbd;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--black);
+    color: var(--white);
+    line-height: 1.6;
+}
+
+/* 2. NAVIGATION */
+
+header {
+    background-color: #080808;
+    border-bottom: 1px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    max-width: 1250px;
+    margin: auto;
+    padding: 18px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.logo small {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.nav-button {
+    background-color: var(--gold);
+    color: var(--black);
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.nav-button:hover {
+    background-color: var(--light-gold);
+    transform: translateY(-2px);
+}
+
+/* 3. HERO SECTION */
+
+.hero {
+    min-height: 700px;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 90px 20px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.70)
+        ),
+        url("interior.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero h1 {
+    color: gold;
+    font-size: clamp(42px, 6vw, 76px);
+    line-height: 1.2;
+    margin-bottom: 22px;
+    letter-spacing: 2px;
+    text-shadow: 2px 3px 8px rgba(0, 0, 0, 0.8);
+}
+
+.main-button {
+    display: inline-block;
+    background-color: var(--gold);
+    color: var(--black);
+    padding: 15px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.main-button:hover {
+    background-color: var(--light-gold);
+}
+
+/* 4. GENERAL SECTION SETTINGS */
+
+.section {
+    padding: 90px 8%;
+    text-align: center;
+}
+
+.section-label {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+}
+
+.section h2 {
+    font-size: 38px;
+    margin-bottom: 22px;
+}
+
+.section h2 span {
+    color: var(--gold);
+}
+
+.section-description {
+    color: var(--gray);
+    margin-bottom: 35px;
+}
+
+/* 5. ABOUT SECTION */
+
+.about {
+    background-color: #151515;
+}
+
+.about-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.about-content p {
+    color: var(--gray);
+    font-size: 16px;
+    margin-bottom: 18px;
+}
+
+.about-content h3 {
+    color: var(--gold);
+    margin-top: 25px;
+}
+
+/* 6. MENU SECTION */
+
+.menu {
+    background-color: #0b0b0b;
+}
+
+.menu-container {
+    max-width: 1150px;
+    margin: 45px auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 22px;
+}
+
+.menu-card {
+    background-color: #191919;
+    border: 1px solid #66511e;
+    padding: 22px;
+    border-radius: 6px;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-7px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.12);
+}
+
+.menu-card h3 {
+    color: var(--gold);
+    font-size: 19px;
+    margin-bottom: 15px;
+}
+
+.menu-card p {
+    color: var(--gray);
+    font-size: 14px;
+}
+
+.menu-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 18px;
+}
+
+/* 7. GALLERY SECTION */
+
+.gallery {
+    background-color: #151515;
+}
+
+.gallery-container {
+    max-width: 1150px;
+    margin: 40px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+.gallery-placeholder {
+    width: 100%;
+    min-width: 0;
+    background-color: #171717;
+    border: 1px solid #c5a04b;
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.gallery-placeholder h3 {
+    color: var(--gold);
+    margin-bottom: 18px;
+}
+
+.gallery-images {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.gallery-images img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
+
+/* 8. CONTACT SECTION */
+
+.contact {
+    background-color: #0b0b0b;
+}
+
+.contact p {
+    color: var(--gray);
+    margin: 12px 0;
+}
+
+/* 9. FOOTER */
+
+footer {
+    background-color: #050505;
+    border-top: 1px solid var(--gold);
+    padding: 45px 20px 25px;
+    text-align: center;
+}
+
+footer h2 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+footer h2 span {
+    color: var(--gold);
+}
+
+footer p {
+    color: var(--gray);
+    font-size: 14px;
+}
+
+.footer-links {
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.footer-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.copyright {
+    border-top: 1px solid #333333;
+    padding-top: 20px;
+    margin-top: 25px;
+}
+
+/* 10. TABLET AND MOBILE DESIGN */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .nav-button {
+        margin-top: 5px;
+    }
+
+    .hero {
+        min-height: 520px;
+        padding: 70px 20px;
+    }
+
+    .section {
+        padding: 65px 6%;
+    }
+
+    .section h2 {
+        font-size: 30px;
+    }
+
+    .menu-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .menu-card {
+        padding: 14px 10px;
+    }
+
+    .menu-card img {
+        height: 130px;
+    }
+
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-placeholder {
+        max-width: 450px;
+        margin: auto;
+    }
+
+    .gallery-images img {
+        height: 120px;
+    }
+}
+
+/* 11. SMALL MOBILE SCREENS */
+
+@media (max-width: 400px) {
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .menu-container {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-images img {
+        height: 100px;
+    }
+}

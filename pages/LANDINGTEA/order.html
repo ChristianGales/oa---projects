@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Now | LandingTea</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .order-page {
+      max-width: 850px;
+      margin: 40px auto;
+      padding: 20px;
+      color: #513b36;
+    }
+
+    .order-heading {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .order-heading h1 {
+      color: #a85269;
+      margin-bottom: 8px;
+    }
+
+    .order-card {
+      background: #fffaf7;
+      border: 1px solid #f0d8d5;
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 22px;
+      box-shadow: 0 6px 20px rgba(100, 55, 55, 0.07);
+    }
+
+    .order-card h2 {
+      color: #a85269;
+      font-size: 21px;
+      margin-top: 0;
+    }
+
+    .order-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .order-field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 15px;
+    }
+
+    .order-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .order-field label {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .order-field input,
+    .order-field select,
+    .order-field textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      border: 1px solid #dfc5c1;
+      border-radius: 10px;
+      background: white;
+      color: #513b36;
+      font: inherit;
+    }
+
+    .order-field input:focus,
+    .order-field select:focus,
+    .order-field textarea:focus {
+      outline: 2px solid #e8a6b6;
+      border-color: #bd7186;
+    }
+
+    .payment-choice {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: white;
+      border: 1px solid #ead2d0;
+      border-radius: 12px;
+      padding: 15px;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+
+    .payment-choice input {
+      margin-top: 4px;
+      accent-color: #b85e77;
+    }
+
+    .payment-choice strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .order-note {
+      background: #fff0f2;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-top: 12px;
+    }
+
+    .order-summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0dfdc;
+    }
+
+    .order-total {
+      font-size: 19px;
+      font-weight: 800;
+      color: #a34461;
+      border-bottom: none;
+    }
+
+    .order-btn {
+      display: inline-block;
+      border: none;
+      border-radius: 25px;
+      padding: 13px 22px;
+      background: #b85e77;
+      color: white;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+
+    .order-btn:hover {
+      background: #98445d;
+    }
+
+    .order-btn.secondary {
+      background: #ead9d5;
+      color: #513b36;
+      margin-right: 8px;
+    }
+
+    .order-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 20px;
+    }
+
+    .confirmation-card {
+      text-align: center;
+      border: 2px solid #e7b7c2;
+    }
+
+    .confirmation-icon {
+      font-size: 55px;
+      margin-bottom: 10px;
+    }
+
+    .confirmation-card h2 {
+      font-size: 27px;
+    }
+
+    .order-number {
+      display: inline-block;
+      background: #fff0f2;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 800;
+      margin: 10px 0;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .order-topnav {
+  background: #fffaf7;
+  border-bottom: 1px solid #f0d8d5;
+  padding: 12px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.order-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #a85269;
+  font-size: 26px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.order-brand img {
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+}
+
+.order-navigation {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.order-navigation a {
+  color: #654741;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.order-navigation a:hover {
+  color: #b85e77;
+}
+
+@media (max-width: 600px) {
+  .order-topnav {
+    justify-content: flex-start;
+    padding: 12px 18px;
+  }
+
+  .order-brand {
+    font-size: 25px;
+  }
+
+  .order-brand img {
+    width: 58px;
+    height: 58px;
+  }
+
+  .order-navigation {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}
+
+    @media (max-width: 600px) {
+      .order-page {
+        margin: 20px auto;
+        padding: 12px;
+      }
+
+      .order-card {
+        padding: 18px;
+      }
+
+      .order-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .order-field.full {
+        grid-column: auto;
+      }
+
+    }
+
+    .confirmation-card {
+  max-width: 520px;
+  margin: 20px auto;
+  padding: 24px;
+  border: 1px solid #efd5d8;
+  border-radius: 16px;
+  background: #fffaf7;
+  box-shadow: 0 8px 24px rgba(120, 75, 75, 0.08);
+  text-align: center;
+}
+
+.confirmation-logo {
+  margin: 0 auto 16px;
+}
+
+.confirmation-logo img {
+  display: block;
+  width: 100%;
+  max-width: 110px;
+  max-height: 100px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.confirmation-card h2 {
+  font-size: 23px;
+  margin: 8px 0;
+  color: #a85269;
+}
+
+.confirmation-card .order-summary-row {
+  text-align: left;
+  font-size: 14px;
+  padding: 9px 0;
+}
+
+.confirmation-card .order-number {
+  font-size: 13px;
+  margin: 12px 0;
+}
+
+.confirmation-card .order-btn {
+  padding: 11px 17px;
+  font-size: 14px;
+}
+
+
+    .confirmation-card {
+  max-width: 460px;
+  margin: 20px auto;
+  padding: 22px;
+  box-sizing: border-box;
+  border: 1px solid #f0d4dc;
+  border-radius: 18px;
+  background: #fffaf7;
+  box-shadow: 0 8px 24px rgba(120, 75, 75, 0.08);
+  text-align: center;
+}
+
+.confirmation-logo img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 0 auto 12px;
+}
+
+.confirmation-card h2 {
+  font-size: 23px;
+  line-height: 1.3;
+  margin: 8px 0;
+  color: #a85269;
+}
+
+.confirmation-card .order-summary-row {
+  padding: 9px 0;
+  font-size: 14px;
+  text-align: left;
+  gap: 12px;
+  overflow-wrap: anywhere;
+}
+
+.confirmation-card .order-number {
+  font-size: 13px;
+  padding: 9px 12px;
+  overflow-wrap: anywhere;
+}
+
+.confirmation-card .order-btn {
+  padding: 10px 15px;
+  font-size: 13px;
+}
+
+.confirmation-card .order-note {
+  text-align: left;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+  .confirmation-card {
+    padding: 16px;
+  }
+
+  .confirmation-logo img {
+    width: 85px;
+    height: 85px;
+  }
+
+  .confirmation-card h2 {
+    font-size: 21px;
+  }
+}
+
+    .product-selection {
+  background: #fff0f3;
+  padding: 18px;
+  border-radius: 16px;
+  margin: 15px 0;
+}
+
+.product-selection h3 {
+  color: #a85269;
+  margin-top: 0;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 13px;
+}
+
+.product-option {
+  background: #fffaf7;
+  border: 1px solid #efd2d8;
+  border-radius: 15px;
+  padding: 13px;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.product-option.selected {
+  border: 2px solid #b85e77;
+  background: #ffe3eb;
+  box-shadow: 0 4px 12px rgba(184, 94, 119, 0.15);
+}
+
+.product-picture {
+  background: #ffe8ed;
+  border-radius: 12px;
+  padding: 15px;
+  font-size: 35px;
+}
+
+.product-option h4 {
+  color: #654741;
+  font-size: 14px;
+  margin: 12px 0 5px;
+}
+
+.product-option p {
+  color: #a85269;
+  font-weight: 800;
+}
+
+.product-option button {
+  background: #b85e77;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 9px 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.product-option.selected button {
+  background: #75414e;
+}
+
+@media (max-width: 400px) {
+  .product-grid {
+    gap: 9px;
+  }
+
+  .product-option {
+    padding: 9px;
+  }
+}
+   .product-picture {
+  width: 100%;
+  height: 190px;
+  background: #ffe8ed;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.product-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+    
+/* GCASH PAYMENT CARD */
+.gcash-payment {
+  background: #0875e1;
+  color: white;
+  padding: 20px;
+  border-radius: 18px;
+  margin-top: 18px;
+  text-align: center;
+}
+
+.gcash-header h3 {
+  font-size: 22px;
+  margin: 0 0 5px;
+}
+
+.gcash-header p {
+  margin-bottom: 18px;
+}
+
+.gcash-qr-container {
+  background: white;
+  padding: 12px;
+  border-radius: 15px;
+  max-width: 280px;
+  margin: 0 auto 18px;
+}
+
+.gcash-qr-container img {
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+}
+
+.gcash-details {
+  background: white;
+  color: #0875e1;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 15px;
+}
+
+.gcash-details p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.gcash-details h3 {
+  margin: 5px 0 0;
+  font-size: 21px;
+}
+
+.gcash-confirmation {
+  background: rgba(255,255,255,0.15);
+  padding: 13px;
+  border-radius: 12px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.gcash-confirmation p {
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.confirmation-product-image {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.confirmation-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+    
+    
+  </style>
+</head>
+
+<body>
+
+<header class="order-topnav">
+    <a href="index.html" class="order-brand">
+      <img src="landingtea-logo.png" alt="LandingTea Logo">
+      <span>LandingTea</span>
+    </a><nav class="order-navigation">
+  <a href="index.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="promos.html">Promos</a>
+  <a href="location.html">Location</a>
+</nav>
+
+  </header>
+
+  <main class="order-page">
+
+    <header class="order-heading">
+      <h1>Let's Make Your Happy Sip! 🧋</h1>
+      <p>Choose your favorites, enter your delivery details, and review your order.</p>
+    </header>
+
+    <form id="orderForm">
+
+      <section class="order-card">
+    <h2>1. Your Order</h2>
+
+    <div class="order-field full">
+      <label>Choose Your Milk Tea</label>
+      <button type="button" class="order-btn" id="toggleProducts">
+        Choose a Product 
+      </button>
+    </div>
+
+    <div id="productCards" class="product-selection hidden">
+      <h3>Our Milk Tea Collection</h3>
+      <div class="product-grid">
+
+        <div class="product-option" data-product="Classic Milk Tea" data-price="79">
+          <div class="product-picture">
+  <img src="classic.png" alt="Classic Milk Tea">
+          </div>
+          <h4>Classic Milk Tea</h4>
+          <p>₱79.00</p>
+          <button type="button">Select</button>
+        </div>
+
+        <div class="product-option" data-product="Brown Sugar Milk Tea" data-price="99">
+          <div class="product-picture">
+  <img src="brown.png" alt="Brown Sugar Milk Tea">
+</div>
+          <h4>Brown Sugar Milk Tea</h4>
+          <p>₱99.00</p>
+          <button type="button">Select</button>
+        </div>
+
+        <div class="product-option" data-product="Strawberry Milk Tea" data-price="89">
+          <div class="product-picture">
+  <img src="strawb.png" alt="Strawberry Milk Tea">
+</div>
+          <h4>Strawberry Milk Tea</h4>
+          <p>₱89.00</p>
+          <button type="button">Select</button>
+        </div>
+
+        <div class="product-option" data-product="Taro Milk Tea" data-price="89">
+          <div class="product-picture">
+  <img src="tarow.png" alt="Taro Milk Tea">
+</div>
+          <h4>Taro Milk Tea</h4>
+          <p>₱89.00</p>
+          <button type="button">Select</button>
+        </div>
+
+        <div class="product-option" data-product="Matcha Milk Tea" data-price="99">
+          <div class="product-picture">
+  <img src="matchaa.png" alt="Matcha Milk Tea">
+</div>
+          <h4>Matcha Milk Tea</h4>
+          <p>₱99.00</p>
+          <button type="button">Select</button>
+        </div>
+
+        <div class="product-option" data-product="Chocolate Milk Tea" data-price="89">
+          <div class="product-picture">
+  <img src="choco.png" alt="Chocolate Milk Tea">
+          </div>
+          <h4>Chocolate Milk Tea</h4>
+          <p>₱89.00</p>
+          <button type="button">Select</button>
+        </div>
+
+        <div class="product-option" data-product="Sweet Duo" data-price="149">
+          <div class="product-picture">
+  <img src="sweet.png" alt="Sweet Duo">
+</div>
+          <h4>Sweet Duo</h4>
+          <p>₱149.00</p>
+          <button type="button">Select</button>
+        </div>
+
+        <div class="product-option" data-product="Barkada Bundle" data-price="279">
+          <div class="product-picture">
+  <img src="barkada.png" alt="Barkada Bundle">
+</div>
+          <h4>Barkada Bundle</h4>
+          <p>₱279.00</p>
+          <button type="button">Select</button>
+        </div>
+
+        <div class="product-option" data-product="Happy Squad Bundle" data-price="419">
+          <div class="product-picture">
+  <img src="happysquad.png" alt="Happy Squad Bunde">
+</div>
+          <h4>Happy Squad Bundle</h4>
+          <p>₱419.00</p>
+          <button type="button">Select</button>
+        </div>
+
+      </div>
+    </div>
+
+    <p id="selectedProductText" class="order-note">
+      No product selected yet.
+    </p>
+
+    <div class="order-grid">
+      <div class="order-field">
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity"
+               min="1" max="20" value="1" required>
+      </div>
+
+      <div class="order-field">
+        <label>Product subtotal</label>
+        <input id="subtotalDisplay" value="₱0.00" readonly>
+      </div>
+    </div>
+
+    <select id="product" name="product" required class="hidden">
+      <option value="">-- Select your order --</option>
+      <optgroup label="Milk Tea Drinks">
+        <option value="Classic Milk Tea" data-price="79">Classic Milk Tea — ₱79</option>
+        <option value="Brown Sugar Milk Tea" data-price="99">Brown Sugar Milk Tea — ₱99</option>
+        <option value="Strawberry Milk Tea" data-price="89">Strawberry Milk Tea — ₱89</option>
+        <option value="Taro Milk Tea" data-price="89">Taro Milk Tea — ₱89</option>
+        <option value="Matcha Milk Tea" data-price="99">Matcha Milk Tea — ₱99</option>
+        <option value="Chocolate Milk Tea" data-price="89">Chocolate Milk Tea — ₱89</option>
+      </optgroup>
+      <optgroup label="Promotional Bundles">
+        <option value="Sweet Duo" data-price="149">Sweet Duo — ₱149</option>
+        <option value="Barkada Bundle" data-price="279">Barkada Bundle — ₱279</option>
+        <option value="Happy Squad Bundle" data-price="419">Happy Squad Bundle — ₱419</option>
+      </optgroup>
+    </select>
+  </section>
+
+      <section class="order-card">
+        <h2>2. Delivery Information</h2>
+
+        <div class="order-grid">
+          <div class="order-field">
+            <label for="customerName">Full name</label>
+            <input id="customerName" name="customerName"
+                   autocomplete="name" required>
+          </div>
+
+          <div class="order-field">
+            <label for="phone">Mobile number</label>
+            <input id="phone" name="phone" type="tel"
+                   autocomplete="tel" placeholder="09XXXXXXXXX"
+                   pattern="09[0-9]{9}" maxlength="11"
+                   title="Enter an 11-digit Philippine mobile number starting with 09."
+                   required>
+          </div>
+
+          <div class="order-field full">
+            <label for="street">House number, street, or purok</label>
+            <input id="street" name="street"
+                   autocomplete="address-line1"
+                   placeholder="House number and street/purok" required>
+          </div>
+
+          <div class="order-field">
+            <label for="barangay">Barangay</label>
+            <input id="barangay" name="barangay"
+                   autocomplete="address-level3" required>
+          </div>
+
+          <div class="order-field">
+            <label for="municipality">Municipality / City</label>
+            <input id="municipality" name="municipality"
+                   autocomplete="address-level2" required>
+          </div>
+
+          <div class="order-field full">
+            <label for="landmark">Landmark or delivery instructions</label>
+            <textarea id="landmark" name="landmark" rows="3"
+                      placeholder="Example: Near a store, beside the school (optional)"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <section class="order-card">
+  <h2>3. Choose Payment Method</h2>
+
+  <label class="payment-choice">
+    <input type="radio" name="payment" value="Cash on Delivery (COD)" required>
+    <span>
+      <strong>Cash on Delivery (COD)</strong>
+      Pay in cash when your order arrives.
+    </span>
+  </label>
+
+  <label class="payment-choice">
+    <input type="radio" name="payment" value="GCash" required>
+    <span>
+      <strong>GCash</strong>
+      Pay using GCash QR Code.
+    </span>
+  </label>
+
+  <div id="gcashNote" class="gcash-payment hidden">
+
+    <div class="gcash-header">
+      <h3>GCash Payment</h3>
+      <p>Scan to Pay via GCash</p>
+    </div>
+
+    <div class="gcash-qr-container">
+      <img src="qrcode.jpg" alt="LandingTea GCash QR Code">
+    </div>
+
+    <div class="gcash-details">
+      <p>GCash Number</p>
+      <h3>09275847010</h3>
+    </div>
+
+    <div class="gcash-confirmation">
+      <strong>GCash Payment Instructions</strong>
+      <p>
+        You are ready to proceed to GCash.
+        Scan the QR code and review the recipient
+        details before sending your payment.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+      <section class="order-card">
+        <h2>4. Review Your Order</h2>
+
+        <div class="order-summary-row">
+          <span>Product</span>
+          <strong id="reviewProduct">Not selected</strong>
+        </div>
+
+        <div class="order-summary-row">
+          <span>Quantity</span>
+          <strong id="reviewQuantity">1</strong>
+        </div>
+
+        <div class="order-summary-row">
+          <span>Subtotal</span>
+          <strong id="reviewSubtotal">₱0.00</strong>
+        </div>
+
+        <div class="order-summary-row">
+          <span>Estimated delivery fee</span>
+          <strong id="reviewDelivery">₱30.00</strong>
+        </div>
+
+        <div class="order-summary-row order-total">
+          <span>Estimated total</span>
+          <strong id="reviewTotal">₱30.00</strong>
+        </div>
+
+        <p class="order-note">
+          Delivery fee is a sample amount for this demo. Confirm the actual
+          fee with the shop before using this for real orders.
+        </p>
+
+        <div class="order-actions">
+          <button type="submit" class="order-btn">Confirm Demo Order</button>
+        </div>
+      </section>
+
+    </form>
+
+    <section id="confirmation" class="order-card confirmation-card hidden"
+             aria-live="polite">
+      
+      <div class="confirmation-product-image">
+  <img id="confirmationProductImage" src="classic.png" alt="Ordered Product">
+</div>
+      
+      <h2>Esmiringhoy na! Este, Your Order Is Ready!</h2>
+      <p>Thank you for choosing LandingTea!</p>
+      <p><em>Your Happy SipSip, Your Happy Day!</em></p>
+
+      <div class="order-number">
+        Demo Order No.: <span id="confirmationNumber"></span>
+      </div>
+
+      <div class="order-summary-row">
+        <span>Customer</span>
+        <strong id="confirmName"></strong>
+      </div>
+
+      <div class="order-summary-row">
+        <span>Product</span>
+        <strong id="confirmProduct"></strong>
+      </div>
+
+      <div class="order-summary-row">
+        <span>Quantity</span>
+        <strong id="confirmQuantity"></strong>
+      </div>
+
+      <div class="order-summary-row">
+        <span>Payment method</span>
+        <strong id="confirmPayment"></strong>
+      </div>
+
+      <div class="order-summary-row">
+        <span>Estimated total</span>
+        <strong id="confirmTotal"></strong>
+      </div>
+
+      <p class="order-note">
+        This is a demo confirmation only. Your order has not been sent to a
+        shop, and no payment has been collected.
+      </p>
+
+      <button type="button" class="order-btn" id="newOrderBtn">
+        Place Another Demo Order
+      </button>
+      <a href="index.html" class="order-btn secondary">Back to Home</a>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+  <script>
+    const orderForm = document.getElementById("orderForm");
+    const productSelect = document.getElementById("product");
+    const quantityInput = document.getElementById("quantity");
+    const gcashNote = document.getElementById("gcashNote");
+    const confirmation = document.getElementById("confirmation");
+    const deliveryFee = 30;
+
+    function money(amount) {
+      return "₱" + amount.toFixed(2);
+    }
+
+    function getPrice() {
+      const selected = productSelect.options[productSelect.selectedIndex];
+      return Number(selected?.dataset?.price || 0);
+    }
+
+    function updateOrderSummary() {
+      const quantity = Math.max(1, Math.min(20, Number(quantityInput.value) || 1));
+      const subtotal = getPrice() * quantity;
+      const total = subtotal + deliveryFee;
+      const productName = productSelect.value || "Not selected";
+
+      document.getElementById("subtotalDisplay").value = money(subtotal);
+      document.getElementById("reviewProduct").textContent = productName;
+      document.getElementById("reviewQuantity").textContent = quantity;
+      document.getElementById("reviewSubtotal").textContent = money(subtotal);
+      document.getElementById("reviewDelivery").textContent = money(deliveryFee);
+      document.getElementById("reviewTotal").textContent = money(total);
+    }
+
+    productSelect.addEventListener("change", updateOrderSummary);
+    quantityInput.addEventListener("input", updateOrderSummary);
+
+    document.querySelectorAll('input[name="payment"]').forEach(function (radio) {
+      radio.addEventListener("change", function () {
+        gcashNote.classList.toggle("hidden", radio.value !== "GCash" || !radio.checked);
+      });
+    });
+
+    
+// OPEN AND CLOSE PRODUCT CARDS
+const toggleProducts = document.getElementById("toggleProducts");
+const productCards = document.getElementById("productCards");
+const selectedProductText = document.getElementById("selectedProductText");
+
+toggleProducts.addEventListener("click", function () {
+  productCards.classList.toggle("hidden");
+
+  toggleProducts.textContent = productCards.classList.contains("hidden")
+    ? "Choose a Product 🧋"
+    : "Close Products ✕";
+});
+
+// SELECT A PRODUCT
+document.querySelectorAll(".product-option").forEach(function (card) {
+  const selectButton = card.querySelector("button");
+
+  selectButton.addEventListener("click", function () {
+    const productName = card.dataset.product;
+
+    productSelect.value = productName;
+
+    document.querySelectorAll(".product-option").forEach(function (item) {
+      item.classList.remove("selected");
+      item.querySelector("button").textContent = "Select";
+    });
+
+    card.classList.add("selected");
+    selectButton.textContent = "Selected ✓";
+
+    selectedProductText.textContent =
+      "Selected: " + productName + " — ₱" + card.dataset.price;
+
+    productCards.classList.add("hidden");
+    toggleProducts.textContent = "Choose Another Product 🧋";
+
+    updateOrderSummary();
+  });
+});
+
+// UPDATE CARD WHEN A PRODUCT IS PRESELECTED
+function syncProductCards() {
+  const selected = productSelect.value;
+
+  document.querySelectorAll(".product-option").forEach(function (card) {
+    const isSelected = card.dataset.product === selected;
+
+    card.classList.toggle("selected", isSelected);
+    card.querySelector("button").textContent =
+      isSelected ? "Selected ✓" : "Select";
+  });
+
+  selectedProductText.textContent = selected
+    ? "Selected: " + selected
+    : "No product selected yet.";
+}
+
+
+    // Preselect a product when the customer clicks a bundle or drink link.
+    const params = new URLSearchParams(window.location.search);
+    const requestedBundle = params.get("bundle");
+    const requestedDrink = params.get("drink");
+
+    const productAliases = {
+      duo: "Sweet Duo",
+      barkada: "Barkada Bundle",
+      squad: "Happy Squad Bundle",
+      classic: "Classic Milk Tea",
+      "brown-sugar": "Brown Sugar Milk Tea",
+      strawberry: "Strawberry Milk Tea",
+      taro: "Taro Milk Tea",
+      matcha: "Matcha Milk Tea",
+      chocolate: "Chocolate Milk Tea"
+    };
+
+    const requestedProduct = productAliases[requestedBundle] ||
+                             productAliases[requestedDrink];
+
+    if (requestedProduct) {
+  productSelect.value = requestedProduct;
+}
+
+syncProductCards();
+
+    updateOrderSummary();
+
+    orderForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (!orderForm.reportValidity()) return;
+
+      const productName = productSelect.value;
+      const quantity = Number(quantityInput.value);
+      const subtotal = getPrice() * quantity;
+      const total = subtotal + deliveryFee;
+      const payment = orderForm.querySelector('input[name="payment"]:checked').value;
+
+      document.getElementById("confirmationNumber").textContent =
+        "LT-DEMO-" + Math.floor(100000 + Math.random() * 900000);
+
+      document.getElementById("confirmName").textContent =
+        document.getElementById("customerName").value.trim();
+
+      document.getElementById("confirmProduct").textContent = productName;
+       const productImages = {
+  "Classic Milk Tea": "classic.png",
+  "Brown Sugar Milk Tea": "brown.png",
+  "Strawberry Milk Tea": "strawb.png",
+  "Taro Milk Tea": "tarow.png",
+  "Matcha Milk Tea": "matchaa.png",
+  "Chocolate Milk Tea": "choco.png",
+  "Sweet Duo": "sweet.png",
+  "Barkada Bundle": "barkada.png",
+  "Happy Squad Bundle": "happysquad.png"
+};
+
+document.getElementById("confirmationProductImage").src =
+  productImages[productName] || "classic-milk-tea.png";
+      
+      document.getElementById("confirmQuantity").textContent = quantity;
+      document.getElementById("confirmPayment").textContent = payment;
+      document.getElementById("confirmTotal").textContent = money(total);
+
+      orderForm.classList.add("hidden");
+      confirmation.classList.remove("hidden");
+      confirmation.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    document.getElementById("newOrderBtn").addEventListener("click", function () {
+      orderForm.reset();
+      productSelect.value = "";
+      quantityInput.value = 1;
+      gcashNote.classList.add("hidden");
+      confirmation.classList.add("hidden");
+      orderForm.classList.remove("hidden");
+      updateOrderSummary();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Store | LandingTea</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <nav class="navbar container">
+      <a href="index.html" class="logo">Landing<span>Tea.</span></a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="promos.html">Bundle Promos</a></li>
+        <li><a href="menu.html">Our Menu</a></li>
+        <li><a href="location.html" class="active">Our Store</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+
+      <a href="order.html" class="btn btn-primary">Order Now</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="page-banner">
+      <div class="container">
+        <p class="eyebrow">COME VISIT US</p>
+        <h1>Find Your Way to <span>LandingTea</span></h1>
+        <p>Your next favorite milk tea stop is waiting for you!</p>
+      </div>
+    </section>
+
+    <section class="section store-section">
+      <div class="container store-grid">
+
+        <div class="store-content">
+          <p class="eyebrow">OUR STORE INFORMATION</p>
+          <h2>Let's Make Your <span>Day Sweeter!</span></h2>
+
+          <p>
+            Visit LandingTea and enjoy delicious milk tea
+            with your friends, classmates, and family.
+          </p>
+
+          <div class="store-details">
+            <p>
+              <strong>Store Address</strong><br>
+              Brgy. Dalakit, near Northern Samar Colleges,
+              Northern Samar
+            </p>
+
+            <p>
+              <strong>Contact Number</strong><br>
+              <a href="tel:09456719074">09456719074</a>
+            </p>
+
+            <p>
+              <strong>Business Hours</strong><br>
+              To be confirmed
+            </p>
+          </div>
+
+          <a href="tel:09456719074" class="btn btn-primary">
+            Contact LandingTea
+          </a>
+
+        <a href="https://www.google.com/maps/search/?api=1&query=Brgy.+Dalakit%2C+near+Northern+Samar+Colleges%2C+Catarman%2C+Northern+Samar"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="btn btn-outline">
+  Get Directions
+</a>
+
+      
+        </div>
+
+        <div class="store-image">
+  <img
+    src="landing-store.png"
+    alt="LandingTea Store"
+    class="location-store-photo">
+        </div>
+      </div>
+    </section>
+
+
+    
+<!-- STORE AMBIANCE GALLERY -->
+<section class="section store-gallery">
+  <div class="container">
+
+    <div class="gallery-heading">
+      <p class="eyebrow">A PLACE TO RELAX</p>
+      <h2>Feel the <span>Cozy Ambiance!</span></h2>
+      <p>Enjoy your favorite milk tea in a warm and welcoming space.</p>
+    </div>
+
+    <div class="store-slider">
+
+      <div class="store-slide active">
+        <img src="store-interior.jpg" alt="LandingTea store interior">
+        <div class="slide-caption">Our Store Interior</div>
+      </div>
+
+      <div class="store-slide">
+        <img src="store-swing.jpg" alt="LandingTea swing seating area">
+        <div class="slide-caption">Relaxing Swing Area</div>
+      </div>
+
+      <div class="store-slide">
+        <img src="store-dining.jpg" alt="LandingTea cozy dining area">
+        <div class="slide-caption">Cozy Dining Space</div>
+      </div>
+
+      <div class="slider-dots">
+        <button class="slider-dot active" aria-label="Slide 1"></button>
+        <button class="slider-dot" aria-label="Slide 2"></button>
+        <button class="slider-dot" aria-label="Slide 3"></button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+    
+    <section class="section final-cta">
+      <div class="container">
+        <p class="eyebrow">SWEETNESS IS JUST A CLICK AWAY</p>
+        <h2>Planning Your Next Milk Tea Treat?</h2>
+        <p>Check out our menu and choose your favorite flavor.</p>
+        <a href="menu.html" class="btn btn-primary">View Our Menu</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="logo">Landing<span>Tea.</span></a>
+        <p>Your Happy Sip, Your Happy Day!</p>
+      </div>
+
+      <div>
+        <h3>Explore</h3>
+        <a href="index.html">Home</a>
+        <a href="promos.html">Bundle Promotions</a>
+        <a href="menu.html">Our Menu</a>
+      </div>
+
+      <div>
+        <h3>Visit Us</h3>
+        <p>Brgy. Dalakit, near Northern Samar Colleges, Northern Samar</p>
+        <a href="tel:09456719074">09456719074</a>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>&copy; 2026 LandingTea. Business advertisement school project.</p>
+    </div>
+  </footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const slides = document.querySelectorAll(".store-slide");
+  const dots = document.querySelectorAll(".slider-dot");
+
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    dots.forEach(dot => dot.classList.remove("active"));
+
+    currentSlide = index;
+    slides[currentSlide].classList.add("active");
+    dots[currentSlide].classList.add("active");
+  }
+
+  function nextSlide() {
+    let next = (currentSlide + 1) % slides.length;
+    showSlide(next);
+  }
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", function () {
+      showSlide(index);
+    });
+  });
+
+  setInterval(nextSlide, 3000);
+});
+</script>
+
+  
+  <script src="script.js"></script>
+
+</body>
+</html>
