@@ -19,7 +19,7 @@
       desc: "Lorem Ipsume", 
       tech: ["HTML", "CSS", "JavaScript"], 
       url: "./pages/LANDINGTEA/index.html", image: LandingTea_LAPTOP, imageMobile: LandingTea_PHONE, c1: "#0369a1", c2: "#7dd3fc",
-      members: [{ name: "Lomagdong", role: "Leader" }] },
+      members: [{ name: "", role: "Leader" }] },
     { title: "GOlden Plate", desc: "Lorem Ipsum", tech: ["HTML", "CSS"], url: "./pages/GOLDENPLATE/index.html", image: GOLDENPLATE_LAPTOP, imageMobile: GOLDENPLATE_MOBILE, c1: "#b45309", c2: "#fcd34d",
       members: [{ name: "Parane", role: "Leader" }] },
     { title: "GameHUB", desc: "Lorem Ipsum", tech: ["HTML", "CSS", "JS"], url: "./pages/GAMEHUB/index.html", image: GAMEHUB_LAPTOP, imageMobile: GAMEHUB_MOBILE, c1: "#be123c", c2: "#fda4af",
