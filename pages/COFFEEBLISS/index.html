@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coffee Bliss | Your Daily Coffee Escape</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<style>  
+
+</style>    <body>  <header>  
+  <div class="navbar">  
+    <a class="logo" href="#home">☕ Coffee Bliss</a>  <nav class="nav-links">  
+  <a href="#home">Home</a>  
+  <a href="#offers">Offers</a>  
+  <a href="#coffee">Our Coffee</a>  
+  <a href="#services">Services</a>  
+  <a href="#reviews">Reviews</a>  
+  <a href="#contact">Contact</a>  
+</nav>  
+
+<button class="cart-nav" onclick="goCheckout()">  
+  Cart (<span id="cart-count">0</span>)  
+</button>
+
+  </div>  
+</header>  <!-- HERO / ADVERTISEMENT -->  <section class="hero" id="home">  
+  <div class="container">  
+    <div class="hero-content">  
+      <div class="eyebrow">Your daily coffee escape</div>  
+      <h1>Good Coffee.<br>Better Moments.</h1>  
+      <p>  
+        Take a break from the busy day. Enjoy carefully prepared  
+        coffee, comforting flavors, and a little happiness in every cup.  
+      </p>  <div class="actions">  
+    <a href="#coffee" class="btn">Explore Our Coffee</a>  
+    <a href="#offers" class="btn btn-outline">Discover Our Offers</a>  
+  </div>  
+</div>
+
+  </div>    <label class="upload-label">  <input type="file" id="bg-upload" accept="image/*">
+
+  </label>  
+</section>  <div class="promo-strip">  
+  YOUR COFFEE BREAK STARTS HERE &nbsp; ☕ &nbsp;  
+  <strong>Discover your new favorite cup!</strong>  
+</div>  <!-- PROMOTIONS -->  <section class="featured" id="offers">  
+  <div class="container">  
+    <div class="section-head">  
+      <div class="kicker">Something special for you</div>  
+      <h2>A Better Coffee Break Awaits</h2>  
+      <p>  
+        Discover your favorites, explore new flavors, and make  
+        every coffee moment worth looking forward to.  
+      </p>  
+    </div>  <article class="offer-card"  
+  style="background-image:url('offer1.jpeg')">    <h3>Customer Favorites</h3>  
+  <p>Discover comforting coffee flavors for your everyday cravings.</p>  
+  <a href="#coffee" class="btn">Explore Coffee</a>  
+</article>  <article class="offer-card"  
+  style="background-image:url('offer2.jpg')">    <h3>Refreshing Iced Coffee</h3>  
+  <p>Find your favorite chilled coffee for a refreshing break.</p>  
+  <a href="#coffee" class="btn">Discover More</a>  
+</article>  <article class="offer-card"  
+  style="background-image:url('offer3.jpg')">    <h3>Easy Online Ordering</h3>  
+  <p>Choose your coffee, add it to your cart, and review your order.</p>  
+  <a href="#checkout" class="btn">Order Now</a>  
+</article>  </div>
+
+  </div>  
+</section>  <!-- COFFEE MENU -->  <section id="coffee">  
+  <div class="container">  
+    <div class="section-head">  
+      <div class="kicker">Made for your coffee moments</div>  
+      <h2>Explore Our Coffee</h2>  
+      <p>  
+        From bold espresso to refreshing iced coffee,  
+        discover a cup you'll love.  
+      </p>  
+    </div>  <div class="menu-tools">  
+  <input id="coffee-search" type="search"  
+    placeholder="Search coffee by name..."  
+    aria-label="Search coffee menu">  
+</div>  
+
+<div class="coffee-grid" id="coffee-grid"></div>
+
+  </div>  
+</section>  <!-- SERVICES -->  <section class="services" id="services">  
+  <div class="container">  
+    <div class="section-head">  
+      <div class="kicker">Convenience in every step</div>  
+      <h2>More Than Just Coffee</h2>  
+      <p>  
+        Enjoy a simple, convenient ordering experience  
+        from choosing your drink to reviewing your order.  
+      </p>  
+    </div>  <div class="service-grid">  
+  <article class="service-card">  
+      
+    <h3>Easy Online Ordering</h3>  
+    <p>Explore our menu, add your favorites, and review your cart.</p>  
+  </article>  
+
+  <article class="service-card">  
+      
+    <h3>Payment Options</h3>  
+    <p>Choose GCash QR or Cash on Delivery at checkout.</p>  
+  </article>  
+
+  <article class="service-card">  
+      
+    <h3>Clear Order Summary</h3>  
+    <p>Review your selected drinks, quantities, and total before placing an order.</p>  
+  </article>  
+
+  <article class="service-card">  
+      
+    <h3>Customer Connection</h3>  
+    <p>Find our contact information and send feedback about your experience.</p>  
+  </article>  
+</div>
+
+  </div>  
+</section>  <!-- WHY CHOOSE US -->  <section id="why-us">  
+  <div class="container">  
+    <div class="section-head">  
+      <div class="kicker">The Coffee Bliss experience</div>  
+      <h2>Why Choose Coffee Bliss?</h2>  
+      <p>It's about enjoying coffee in a way that feels easy and welcoming.</p>  
+    </div>  <div class="why-grid">  
+  <article class="why-card">  
+    <h3>☕ Coffee for Every Mood</h3>  
+    <p>Choose from a variety of coffee styles and flavors.</p>  
+  </article>  
+
+  <article class="why-card">  
+    <h3>🤎 A Cozy Coffee Experience</h3>  
+    <p>A warm brand experience inspired by the comfort of a good cup.</p>  
+  </article>  
+
+  <article class="why-card">  
+    <h3>📱 Convenient Browsing</h3>  
+    <p>Browse products and review your cart on your phone or computer.</p>  
+  </article>  
+
+  <article class="why-card">  
+    <h3>💬 Your Feedback Matters</h3>  
+    <p>Share your thoughts and help us understand your coffee experience.</p>  
+  </article>  
+</div>
+
+  </div>  
+</section>  <!-- BRAND STORY -->  <section class="story">  
+  <div class="container story-inner">  
+    <div class="kicker">A moment just for you</div>  
+    <h2>Life Feels Better With Coffee</h2>  
+    <p>  
+      At Coffee Bliss, coffee is more than a drink.  
+      It's a moment to pause, recharge, and enjoy the little  
+      things. Discover a favorite, share a cup, and make today  
+      a little more special.  
+    </p>  
+    <a href="#coffee" class="btn">Find Your Coffee</a>  
+  </div>  
+</section>  <!-- CHECKOUT -->  <section id="checkout">  
+  <div class="container">  
+    <div class="section-head">  
+      <div class="kicker">Your favorites, in one place</div>  
+      <h2>Checkout</h2>  
+      <p>Review your coffee selections and fill in your order details.</p>  
+    </div>  <div class="checkout-layout">  
+  <div class="panel">  
+    <h3>🛒 Your Shopping Cart</h3>  
+    <div id="cart-items">  
+      Your cart is empty. Explore our coffee menu!  
+    </div>  
+
+    <div class="total">  
+      <span>Total</span>  
+      <span id="cart-total">₱0.00</span>  
+    </div>  
+
+    <button type="button" class="btn btn-outline"  
+      onclick="clearCart()">Clear Cart</button>  
+
+    <p class="notice">  
+      Prices shown are sample prices for this demo.  
+    </p>  
+  </div>  
+
+  <div class="panel">  
+    <h3>📦 Customer Details</h3>  
+
+    <form id="order-form">  
+      <div class="field">  
+        <label for="customer-name">Full Name *</label>  
+        <input id="customer-name" required  
+          placeholder="Enter your full name">  
+      </div>  
+
+      <div class="field">  
+        <label for="customer-phone">Phone Number *</label>  
+        <input id="customer-phone" type="tel" required  
+          placeholder="09XXXXXXXXX">  
+      </div>  
+
+      <div class="field">  
+        <label for="customer-address">Delivery Address *</label>  
+        <textarea id="customer-address" rows="3" required  
+          placeholder="House number, street, city"></textarea>  
+      </div>  
+
+      <h3>💳 Choose Payment</h3>  
+
+      <label class="payment-choice">  
+        <input type="radio" name="payment" value="GCash" required>  
+        GCash QR Payment  
+      </label>  
+
+      <label class="payment-choice">  
+        <input type="radio" name="payment" value="Cash on Delivery">  
+        Cash on Delivery (COD)  
+      </label>  
+
+      <div class="qr-area" id="qr-area">  
+        <strong>Scan the Coffee Bliss GCash QR</strong>  
+        <p class="notice">  
+          Upload your own valid store QR image.  
+        </p>  
+
+        <img id="qr-image"
+
+src="QRcheckout.png"
+alt="Coffee Bliss GCash QR Code"
+style="display:block">
+
+<label for="qr-upload">Choose QR image:</label>  
+        <input type="file" id="qr-upload" accept="image/*">  
+
+        <p class="notice">  
+          This demo only displays your QR image.  
+          Payment is not automatically verified.  
+        </p>  
+      </div>  
+
+      <button type="submit" class="btn"  
+        style="width:100%">Place Order</button>  
+
+      <p class="notice">  
+        Demo checkout only. Orders are not automatically  
+        transmitted to the store.  
+      </p>  
+    </form>  
+
+    <div id="order-result" aria-live="polite"></div>  
+  </div>  
+</div>
+
+  </div>  
+</section>  <!-- CUSTOMER REVIEWS -->  <section id="reviews">  
+  <div class="container">  
+    <div class="section-head">  
+      <div class="kicker">A cup of appreciation</div>  
+      <h2>Customer Feedback</h2>  
+      <p>Read what customers have to say about their coffee experience.</p>  
+    </div>  <div class="feedback-grid" id="reviews-list">  
+  <article class="review">  
+    <div class="stars">★★★★★</div>  
+    <p>"Smooth coffee and a lovely taste. Perfect for my mornings!"</p>  
+    <h4>— Mia R.</h4>  
+  </article>  
+
+  <article class="review">  
+    <div class="stars">★★★★★</div>  
+    <p>"The iced latte is refreshing. I love having coffee during my break."</p>  
+    <h4>— John D.</h4>  
+  </article>  
+
+  <article class="review">  
+    <div class="stars">★★★★★</div>  
+    <p>"A cozy coffee concept with a great variety of choices."</p>  
+    <h4>— Angela M.</h4>  
+  </article>  
+</div>  
+
+<form class="feedback-form panel" id="feedback-form">  
+  <h3>Share Your Experience</h3>  
+
+  <div class="field">  
+    <label for="review-name">Your Name *</label>  
+    <input id="review-name" required placeholder="Enter your name">  
+  </div>  
+
+  <div class="field">  
+    <label for="review-rating">Your Rating</label>  
+    <select id="review-rating">  
+      <option value="5">★★★★★ Excellent</option>  
+      <option value="4">★★★★ Very Good</option>  
+      <option value="3">★★★ Good</option>  
+      <option value="2">★★ Fair</option>  
+      <option value="1">★ Needs Improvement</option>  
+    </select>  
+  </div>  
+
+  <div class="field">  
+    <label for="review-message">Your Feedback *</label>  
+    <textarea id="review-message" rows="3" required  
+      placeholder="Write your feedback here..."></textarea>  
+  </div>  
+
+  <button class="btn" type="submit">Submit Feedback</button>  
+
+  <p class="notice">  
+    Sample testimonials are placeholders. New reviews are  
+    displayed on this page only.  
+  </p>  
+</form>
+
+  </div>  
+</section>  <!-- CONTACT FOOTER -->  <footer id="contact">  
+  <div class="container">  
+    <h2>☕ Coffee Bliss</h2>  
+    <p><em>Your Daily Coffee Escape.</em></p>  <p style="margin-top:18px">  
+  📍 Address: Brgy.Dalakit, Capitol Road  
+</p>  
+
+<p>  
+  📞 Contact: 09770574393  
+</p>  
+
+<p class="footer-social">  
+  📘 <a id="facebook-link"  
+    href="https://www.facebook.com/"  
+    target="_blank" rel="noopener">Visit Our Facebook Page</a>  
+</p>  
+
+<p class="copyright">  
+  © 2026 Coffee Bliss. All rights reserved.  
+</p>
+
+  </div>  
+</footer>  <script>  
+// =====================================  
+// 1. EDIT YOUR COFFEE PRODUCTS HERE  
+// =====================================  
+const coffees = [  
+  {  
+    id: 1,  
+    name: "Classic Espresso",  
+    price: 85,  
+    desc: "Rich, bold, and perfectly brewed.",  
+    tag: "CLASSIC",  
+    img: "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=600&q=80"  
+  },  
+  {  
+    id: 2,  
+    name: "Cappuccino",  
+    price: 110,  
+    desc: "Espresso topped with creamy milk foam.",  
+    tag: "FAVORITE",  
+    img: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=80"  
+  },  
+  {  
+    id: 3,  
+    name: "Iced Latte",  
+    price: 120,  
+    desc: "Smooth milk and espresso served over ice.",  
+    tag: "ICED",  
+    img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=600&q=80"  
+  },  
+  {  
+    id: 4,  
+    name: "Mocha Delight",  
+    price: 130,  
+    desc: "A comforting blend of coffee and chocolate.",  
+    tag: "CHOCOLATE",  
+    img: "https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&w=600&q=80"  
+  },  
+  {  
+    id: 5,  
+    name: "Caramel Macchiato",  
+    price: 140,  
+    desc: "Coffee with creamy milk and caramel flavor.",  
+    tag: "SPECIAL",  
+    img: "https://images.unsplash.com/photo-1485808191679-5f86510681a2?auto=format&fit=crop&w=600&q=80"  
+  },  
+  {  
+    id: 6,  
+    name: "Americano",  
+    price: 95,  
+    desc: "A simple, balanced black coffee.",  
+    tag: "CLASSIC",  
+    img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80"  
+  }  
+];  
+  
+let cart = [];  
+  
+const peso = n => "₱" + n.toFixed(2);  
+  
+function renderMenu(searchTerm = "") {  
+  const grid = document.getElementById("coffee-grid");  
+  const term = searchTerm.trim().toLowerCase();  
+  
+  const filtered = coffees.filter(c =>  
+    c.name.toLowerCase().includes(term) ||  
+    c.desc.toLowerCase().includes(term) ||  
+    c.tag.toLowerCase().includes(term)  
+  );  
+  
+  if (!filtered.length) {  
+    grid.innerHTML =  
+      '<p class="empty-menu">No coffee found. Try another name.</p>';  
+    return;  
+  }  
+  
+  grid.innerHTML = "";  
+  
+  filtered.forEach(c => {  
+    const card = document.createElement("article");  
+    card.className = "coffee-card";  
+  
+    const img = document.createElement("img");  
+    img.src = c.img;  
+    img.alt = c.name;  
+    img.loading = "lazy";  
+  
+    const info = document.createElement("div");  
+    info.className = "coffee-info";  
+  
+    const tag = document.createElement("span");  
+    tag.className = "tag";  
+    tag.textContent = c.tag;  
+  
+    const title = document.createElement("h3");  
+    title.textContent = c.name;  
+  
+    const desc = document.createElement("p");  
+    desc.textContent = c.desc;  
+  
+    const row = document.createElement("div");  
+    row.className = "price-row";  
+  
+    const price = document.createElement("span");  
+    price.className = "price";  
+    price.textContent = peso(c.price);  
+  
+    const btn = document.createElement("button");  
+    btn.className = "small-btn";  
+    btn.textContent = "+ Add to Cart";  
+    btn.onclick = () => addToCart(c.id);  
+  
+    row.append(price, btn);  
+    info.append(tag, title, desc, row);  
+    card.append(img, info);  
+    grid.append(card);  
+  });  
+}  
+  
+function addToCart(id) {  
+  const coffee = coffees.find(c => c.id === id);  
+  if (!coffee) return;  
+  
+  const item = cart.find(c => c.id === id);  
+  
+  if (item) {  
+    item.qty++;  
+  } else {  
+    cart.push({...coffee, qty: 1});  
+  }  
+  
+  renderCart();  
+}  
+  
+function changeQty(id, amount) {  
+  const item = cart.find(c => c.id === id);  
+  if (!item) return;  
+  
+  item.qty += amount;  
+  
+  if (item.qty <= 0) {  
+    cart = cart.filter(c => c.id !== id);  
+  }  
+  
+  renderCart();  
+}  
+  
+function removeItem(id) {  
+  cart = cart.filter(c => c.id !== id);  
+  renderCart();  
+}  
+  
+function clearCart() {  
+  cart = [];  
+  renderCart();  
+}  
+  
+function renderCart() {  
+  const container = document.getElementById("cart-items");  
+  
+  const count = cart.reduce((sum, item) => sum + item.qty, 0);  
+  const total = cart.reduce((sum, item) =>  
+    sum + item.price * item.qty, 0);  
+  
+  document.getElementById("cart-count").textContent = count;  
+  document.getElementById("cart-total").textContent = peso(total);  
+  
+  if (!cart.length) {  
+    container.textContent =  
+      "Your cart is empty. Explore our coffee menu!";  
+    return;  
+  }  
+  
+  container.innerHTML = "";  
+  
+  cart.forEach(item => {  
+    const row = document.createElement("div");  
+    row.className = "cart-item";  
+  
+    const details = document.createElement("div");  
+  
+    const title = document.createElement("strong");  
+    title.textContent = item.name;  
+  
+    const unit = document.createElement("br");  
+    const small = document.createElement("small");  
+    small.textContent = peso(item.price) + " each";  
+  
+    const qty = document.createElement("div");  
+    qty.className = "qty";  
+  
+    const minus = document.createElement("button");  
+    minus.type = "button";  
+    minus.textContent = "−";  
+    minus.setAttribute("aria-label", "Decrease quantity");  
+    minus.onclick = () => changeQty(item.id, -1);  
+  
+    const number = document.createElement("span");  
+    number.textContent = item.qty;  
+  
+    const plus = document.createElement("button");  
+    plus.type = "button";  
+    plus.textContent = "+";  
+    plus.setAttribute("aria-label", "Increase quantity");  
+    plus.onclick = () => changeQty(item.id, 1);  
+  
+    qty.append(minus, number, plus);  
+  
+    const remove = document.createElement("button");  
+    remove.type = "button";  
+    remove.className = "remove";  
+    remove.textContent = "Remove item";  
+    remove.onclick = () => removeItem(item.id);  
+  
+    details.append(title, unit, small, qty, remove);  
+  
+    const subtotal = document.createElement("strong");  
+    subtotal.textContent = peso(item.price * item.qty);  
+  
+    row.append(details, subtotal);  
+    container.append(row);  
+  });  
+}  
+  
+function goCheckout() {  
+  document.getElementById("checkout").scrollIntoView({  
+    behavior: "smooth"  
+  });  
+}  
+  
+document.getElementById("coffee-search").addEventListener("input", e => {  
+  renderMenu(e.target.value);  
+});  
+  
+// =====================================  
+// 2. CUSTOM HOME BACKGROUND UPLOAD  
+// =====================================  
+document.getElementById("bg-upload").addEventListener("change", e => {  
+  const file = e.target.files[0];  
+  if (!file) return;  
+  
+  if (!file.type.startsWith("image/")) {  
+    alert("Please select a valid image.");  
+    return;  
+  }  
+  
+  const reader = new FileReader();  
+  
+  reader.onload = () => {  
+    document.querySelector(".hero").style.backgroundImage =  
+      `linear-gradient(90deg,#20130bba,#20130b45),url("${reader.result}")`;  
+  };  
+  
+  reader.readAsDataURL(file);  
+});  
+  
+// =====================================  
+// 3. GCA​​SH QR UPLOAD AND PAYMENT CHOICE  
+// =====================================  
+document.querySelectorAll('input[name="payment"]').forEach(input => {  
+  input.addEventListener("change", () => {  
+    const selected =  
+      document.querySelector('input[name="payment"]:checked');  
+  
+    document.getElementById("qr-area").style.display =  
+      selected && selected.value === "GCash" ? "block" : "none";  
+  });  
+});  
+  
+document.getElementById("qr-upload").addEventListener("change", e => {  
+  const file = e.target.files[0];  
+  if (!file) return;  
+  
+  if (!file.type.startsWith("image/")) {  
+    alert("Please select a valid QR image.");  
+    return;  
+  }  
+  
+  const reader = new FileReader();  
+  
+  reader.onload = () => {  
+    const img = document.getElementById("qr-image");  
+    img.src = reader.result;  
+    img.style.display = "block";  
+  };  
+  
+  reader.readAsDataURL(file);  
+});  
+  
+// =====================================  
+// 4. DEMO CHECKOUT  
+// =====================================  
+document.getElementById("order-form").addEventListener("submit", e => {  
+  e.preventDefault();  
+  
+  if (!cart.length) {  
+    alert("Your cart is empty. Add coffee before checkout.");  
+    return;  
+  }  
+  
+  const payment =  
+    document.querySelector('input[name="payment"]:checked');  
+  
+  if (!payment) {  
+    alert("Please choose a payment method.");  
+    return;  
+  }  
+  
+  if (payment.value === "GCash") {  
+    const qr = document.getElementById("qr-image");  
+  
+    if (!qr.getAttribute("src")) {  
+      alert("Upload the store's GCash QR code first.");  
+      return;  
+    }  
+  }  
+  
+  const name = document.getElementById("customer-name").value.trim();  
+  const phone = document.getElementById("customer-phone").value.trim();  
+  const address = document.getElementById("customer-address").value.trim();  
+  
+  if (!name || !phone || !address) {  
+    alert("Please complete all customer details.");  
+    return;  
+  }  
+  
+  const total = cart.reduce((sum, item) =>  
+    sum + item.price * item.qty, 0);  
+  
+  const lines = cart.map(item =>  
+    `${item.name} x ${item.qty} = ${peso(item.price * item.qty)}`  
+  );  
+  
+  const orderText =  
+    "COFFEE BLISS - DEMO ORDER\n" +  
+    "Name: " + name + "\n" +  
+    "Phone: " + phone + "\n" +  
+    "Address: " + address + "\n" +  
+    "Payment: " + payment.value + "\n\n" +  
+    lines.join("\n") + "\n\n" +  
+    "TOTAL: " + peso(total);  
+  
+  const result = document.getElementById("order-result");  
+  result.style.display = "block";  
+  result.replaceChildren();  
+  
+  const heading = document.createElement("h3");  
+  heading.textContent = "Order Summary Created!";  
+  
+  const summary = document.createElement("pre");  
+  summary.style.whiteSpace = "pre-wrap";  
+  summary.style.overflowWrap = "anywhere";  
+  summary.style.margin = "12px 0";  
+  summary.textContent = orderText;  
+  
+  const note = document.createElement("p");  
+  note.className = "notice";  
+  note.textContent =  
+    "Demo only: this order has not been sent to the store. " +  
+    "No payment has been processed or verified.";  
+  
+  const copy = document.createElement("button");  
+  copy.type = "button";  
+  copy.className = "small-btn";  
+  copy.textContent = "Copy Order Details";  
+  
+  copy.onclick = async () => {  
+    try {  
+      await navigator.clipboard.writeText(orderText);  
+      alert("Order details copied!");  
+    } catch {  
+      window.prompt("Copy your order details:", orderText);  
+    }  
+  };  
+  
+  result.append(heading, summary, note, copy);  
+  result.scrollIntoView({behavior: "smooth", block: "nearest"});  
+});  
+  
+// =====================================  
+// 5. CUSTOMER FEEDBACK  
+// =====================================  
+document.getElementById("feedback-form").addEventListener("submit", e => {  
+  e.preventDefault();  
+  
+  const name = document.getElementById("review-name").value.trim();  
+  const rating = Number(document.getElementById("review-rating").value);  
+  const message = document.getElementById("review-message").value.trim();  
+  
+  if (!name || !message) return;  
+  
+  const article = document.createElement("article");  
+  article.className = "review";  
+  
+  const stars = document.createElement("div");  
+  stars.className = "stars";  
+  stars.textContent = "★".repeat(rating) + "☆".repeat(5 - rating);  
+  
+  const comment = document.createElement("p");  
+  comment.textContent = '"' + message + '"';  
+  
+  const author = document.createElement("h4");  
+  author.textContent = "— " + name;  
+  
+  article.append(stars, comment, author);  
+  document.getElementById("reviews-list").prepend(article);  
+  
+  e.target.reset();  
+  alert("Thank you for your feedback!");  
+});  
+  
+// =====================================  
+// 6. INITIALIZE  
+// =====================================  
+renderMenu();  
+renderCart();  
+</script>  </body>  
+</html>  

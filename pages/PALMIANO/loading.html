@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GALES SYSTEM — SYSTEM AWAKENING</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="loading.css">
+</head>
+<body>
+
+    <!-- 1. BACKGROUND VIDEO LAYER -->
+    <div class="video-overlay"></div>
+    <video id="bg-video" autoplay loop muted playsinline class="bg-video">
+        <!-- REPLACE THIS WITH YOUR OWN VIDEO FILE (e.g. video/awakening-bg.mp4) -->
+        <source src="log-in.mp4" type="video/mp4">
+    </video>
+
+    <!-- 2. SYSTEM MUSIC PLAYER (Auto-plays upon user interaction) -->
+    <!-- REPLACE THIS WITH YOUR OWN AUDIO FILE (e.g. audio/system-theme.mp3) -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="take.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Floating Audio Control -->
+    <button class="music-toggle" id="music-btn" onclick="toggleMusic()">
+        <span id="music-icon">🎵</span> <span id="music-text">MUSIC: ON</span>
+    </button>
+
+    <!-- 3. PARTICLES CANVAS -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- 4. SYSTEM AWAKENING HUD -->
+    <div class="awakening-container">
+        <div class="scanner-line"></div>
+
+        <div class="rune-wrapper">
+            <div class="rune-circle outer"></div>
+            <div class="rune-circle middle"></div>
+            <div class="rune-circle inner"></div>
+            <div class="core-glow"></div>
+        </div>
+
+        <div class="hud-box">
+            <div class="sys-tag">
+                <span class="blink">●</span> GALES SYSTEM // PROTOCOL 0x00
+            </div>
+
+            <h1 class="main-title">IDENTITY VERIFIED</h1>
+            <p class="sub-title">SUNG GILBERT — THE SHADOW SCHOLAR</p>
+
+            <div class="progress-section" id="progress-section">
+                <div class="progress-bar-container">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-meta">
+                    <span id="loading-status">INITIALIZING SYSTEM...</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+            </div>
+
+            <button id="arise-btn" class="btn-arise hidden" onclick="ariseTrigger()">
+                <span class="btn-glow"></span>
+                <span class="btn-text">ARISE</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="loading.js"></script>
+</body>
+</html>

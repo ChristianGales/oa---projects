@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff8f6">
+  <meta name="description" content="Discover JENPOTZZ Cosmetics Plus — beauty, confidence, and self-care.">
+  <title>JENPOTZZ Cosmetics Plus | Beauty & Self-Care</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a href="#home" class="brand" aria-label="JENPOTZZ Cosmetics Plus home">
+        <!-- LOGO: palitan ang src ng logo mo -->
+        <img src="logojenpotz.png" alt="JENPOTZZ Cosmetics Plus logo" class="brand-logo">
+        <span class="brand-name">
+          JENPOTZZ
+          <small>Cosmetics Plus</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About Us</a>
+        <a href="#products" class="nav-link">Products</a>
+        <a href="#promotions" class="nav-link">Promotions</a>
+        <a href="#why-us" class="nav-link">Why Choose Us</a>
+        <a href="#reviews" class="nav-link">Reviews</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#contact" class="nav-link nav-contact">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME / HERO -->
+    <section class="hero section" id="home">
+      <!-- HERO BACKGROUND IMAGE: palitan ang src dito sa HTML -->
+      <img
+        src="bckgrndimage.jpg"
+        alt="background image"
+        class="hero-background"
+        aria-hidden="true"
+      >
+
+      <div class="hero-shade"></div>
+
+      <div class="container hero-content">
+        <span class="eyebrow">YOUR BEAUTY, YOUR CONFIDENCE</span>
+        <h1>Feel Beautiful.<br><span>Be Uniquely You.</span></h1>
+        <p>
+          Discover beauty and self-care essentials that celebrate
+          your individuality and bring out your natural confidence.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#products" class="btn btn-primary">Explore Our Collection</a>
+          <a href="#about" class="btn btn-outline">Discover Our Story</a>
+        </div>
+
+        <div class="hero-note">
+          <span class="note-line"></span>
+          Beauty begins with caring for yourself.
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-cue" aria-label="Scroll to About Us">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ABOUT US -->
+    <section class="section about-section" id="about">
+      <div class="container about-grid">
+        <div class="about-visual">
+          <!-- ABOUT IMAGE: palitan ang src dito sa HTML -->
+
+
+          
+<div class="about-image-box"
+     onclick="openOwnerPhoto()"
+     role="button"
+     tabindex="0"
+     aria-label="Zoom owner photo">
+
+  <img src="aboutus.png"
+       alt="JENPOTZZ Cosmetics Plus Owner"
+       class="about-owner-image">
+</div>
+
+
+          
+        
+          <div class="about-stamp">
+            <span>BEAUTY</span>
+            <strong>With<br>Confidence</strong>
+          </div>
+        </div>
+
+        <div class="about-copy">
+          <span class="eyebrow">GET TO KNOW US</span>
+          <h2>A Little Beauty.<br><span>A Lot of Confidence.</span></h2>
+          <p>
+            Welcome to JENPOTZZ Cosmetics Plus, a beauty destination
+            inspired by self-expression, self-care, and confidence.
+          </p>
+          <p>
+            We believe beauty is personal. Our goal is to help you
+            explore your style, celebrate what makes you unique, and
+            make time for the little things that help you feel good.
+          </p>
+
+          <a href="#why-us" class="text-link">
+            Discover what makes us special <span>↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- PRODUCTS / COLLECTION -->
+    <section class="section products-section" id="products">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">BEAUTY, YOUR WAY</span>
+          <h2>Explore Our <span>Collection</span></h2>
+          <p>
+            Find inspiration for your beauty routine and everyday
+            self-care moments.
+          </p>
+        </div>
+
+        <div class="filter-list" role="group" aria-label="Filter collection">
+          <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" data-filter="makeup" aria-pressed="false">Makeup</button>
+          <button class="filter-btn" data-filter="skincare" aria-pressed="false">Skincare</button>
+          <button class="filter-btn" data-filter="beauty" aria-pressed="false">Beauty Essentials</button>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card" data-category="makeup">
+            <!-- PRODUCT IMAGE 1 -->
+            <div class="product-image-wrap">
+              <img src="product1.png" alt="Makeup collection" loading="lazy">
+              <span class="image-label">MAKEUP</span>
+            </div>
+            <div class="product-info">
+              <span class="product-number">01 / MAKEUP</span>
+              <h3>Everyday Glam</h3>
+              <p>Explore makeup inspiration for your everyday look.</p>
+              <a href="#contact" class="text-link">Learn More <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="skincare">
+            <!-- PRODUCT IMAGE 2 -->
+            <div class="product-image-wrap">
+              <img src="product2.png" alt="Skincare essentials" loading="lazy">
+              <span class="image-label">SKINCARE</span>
+            </div>
+            <div class="product-info">
+              <span class="product-number">02 / SKINCARE</span>
+              <h3>Daily Skin Ritual</h3>
+              <p>Make room in your routine for a little self-care.</p>
+              <a href="#contact" class="text-link">Learn More <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="beauty">
+            <!-- PRODUCT IMAGE 3 -->
+            <div class="product-image-wrap">
+              <img src="product3.png" alt="Beauty accessories" loading="lazy">
+              <span class="image-label">ESSENTIALS</span>
+            </div>
+            <div class="product-info">
+              <span class="product-number">03 / ESSENTIALS</span>
+              <h3>Beauty Must-Haves</h3>
+              <p>Discover little essentials for your beauty routine.</p>
+              <a href="#contact" class="text-link">Learn More <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="makeup">
+            <!-- PRODUCT IMAGE 4 -->
+            <div class="product-image-wrap">
+              <img src="product4.png" alt="Lip and makeup products" loading="lazy">
+              <span class="image-label">MAKEUP</span>
+            </div>
+            <div class="product-info">
+              <span class="product-number">04 / MAKEUP</span>
+              <h3>Your Signature Look</h3>
+              <p>Find inspiration for a look that feels like you.</p>
+              <a href="#contact" class="text-link">Learn More <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="skincare">
+            <!-- PRODUCT IMAGE 5 -->
+            <div class="product-image-wrap">
+              <img src="product5.png" alt="Self-care skincare products" loading="lazy">
+              <span class="image-label">SKINCARE</span>
+            </div>
+            <div class="product-info">
+              <span class="product-number">05 / SKINCARE</span>
+              <h3>Self-Care Moments</h3>
+              <p>Celebrate the simple moments in your care routine.</p>
+              <a href="#contact" class="text-link">Learn More <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="beauty">
+            <!-- PRODUCT IMAGE 6 -->
+            <div class="product-image-wrap">
+              <img src="product6.png" alt="Beauty lifestyle collection" loading="lazy">
+              <span class="image-label">ESSENTIALS</span>
+            </div>
+            <div class="product-info">
+              <span class="product-number">06 / ESSENTIALS</span>
+              <h3>Beauty Your Way</h3>
+              <p>Express your own style with confidence and creativity.</p>
+              <a href="#contact" class="text-link">Learn More <span>↗</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMOTIONS -->
+    <section class="section promotions-section" id="promotions">
+      <!-- PROMOTION BACKGROUND IMAGE: HTML LANG DIN -->
+      <img
+        src="promotionbckgrnd.png"
+        alt=""
+        class="promotion-background"
+        aria-hidden="true"
+        loading="lazy"
+      >
+      <div class="promotion-shade"></div>
+
+      <div class="container promotion-content">
+        <span class="eyebrow">A MOMENT JUST FOR YOU</span>
+        <h2>Make Time for <span>Yourself.</span></h2>
+        <p>
+          Explore our latest beauty highlights, featured collections,
+          and special announcements.
+        </p>
+        <a href="#contact" class="btn btn-light">Ask About Our Highlights</a>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section why-section" id="why-us">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">THE JENPOTZZ TOUCH</span>
+          <h2>Beauty That Feels <span>Like You</span></h2>
+          <p>
+            A beauty experience centered on individuality, care,
+            and confidence.
+          </p>
+        </div>
+
+        <div class="benefit-grid">
+          <article class="benefit-card">
+            <div class="benefit-icon" aria-hidden="true">✧</div>
+            <h3>Beauty & Self-Expression</h3>
+            <p>Celebrate your own look and express your unique personality.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon" aria-hidden="true">♡</div>
+            <h3>Self-Care First</h3>
+            <p>Make time for yourself and enjoy the little moments of care.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon" aria-hidden="true">✿</div>
+            <h3>Personal Style</h3>
+            <p>Discover beauty inspiration that fits your own preferences.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon" aria-hidden="true">☼</div>
+            <h3>Confidence Every Day</h3>
+            <p>Feel encouraged to show up as your most authentic self.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="section reviews-section" id="reviews">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">KIND WORDS</span>
+          <h2>Beauty Is Better <span>Shared</span></h2>
+          <p>
+            A space to celebrate confidence, self-expression, and beauty.
+          </p>
+        </div>
+
+        <!-- Palitan ang sample text ng totoong feedback bago i-publish. -->
+        <div class="review-grid">
+          <article class="review-card">
+            <div class="review-stars" aria-label="Five stars">★★★★★</div>
+            <blockquote>
+              “I love how the brand celebrates personal style and confidence.”
+            </blockquote>
+            <p class="review-author">Beauty Community</p>
+            <span class="review-note">Sample testimonial</span>
+          </article>
+
+          <article class="review-card featured-review">
+            <div class="review-stars" aria-label="Five stars">★★★★★</div>
+            <blockquote>
+              “A lovely reminder that self-care can be simple and personal.”
+            </blockquote>
+            <p class="review-author">Beauty Community</p>
+            <span class="review-note">Sample testimonial</span>
+          </article>
+
+          <article class="review-card">
+            <div class="review-stars" aria-label="Five stars">★★★★★</div>
+            <blockquote>
+              “The beauty inspiration feels elegant, welcoming, and easy to explore.”
+            </blockquote>
+            <p class="review-author">Beauty Community</p>
+            <span class="review-note">Sample testimonial</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq-section" id="faq">
+      <div class="container faq-layout">
+        <div class="faq-intro">
+          <span class="eyebrow">NEED TO KNOW?</span>
+          <h2>Frequently Asked <span>Questions</span></h2>
+          <p>
+            Have a question about JENPOTZZ Cosmetics Plus?
+            Start with these quick answers.
+          </p>
+          <a href="#contact" class="text-link">Still have questions? Contact us <span>↗</span></a>
+        </div>
+
+        <div class="faq-list">
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What is JENPOTZZ Cosmetics Plus?
+              <span class="faq-symbol" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>
+                JENPOTZZ Cosmetics Plus is a beauty-focused brand presentation
+                centered on beauty inspiration, personal style, and self-care.
+              </p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Where can I ask about the collection?
+              <span class="faq-symbol" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>
+                Use the contact section on this page to send an inquiry.
+                Add your official contact details before publishing.
+              </p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How can I learn about promotions?
+              <span class="faq-symbol" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>
+                Visit the Promotions section and contact the business
+                for the latest verified announcements.
+              </p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How do I get in touch?
+              <span class="faq-symbol" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>
+                Complete the contact form below. The form is a demo until
+                it is connected to an email or form service.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <span class="eyebrow">LET'S CONNECT</span>
+          <h2>We'd Love to <span>Hear From You</span></h2>
+          <p>
+            Questions, beauty inquiries, or feedback?
+            Send us a message and let us know how we can help.
+          </p>
+
+          <div class="contact-detail">
+            <span class="contact-detail-icon" aria-hidden="true">✉</span>
+            <div>
+              <strong>Send an inquiry</strong>
+              <p>Use the message form on this page.</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <span class="contact-detail-icon" aria-hidden="true">♡</span>
+            <div>
+              <strong>JENPOTZZ Cosmetics Plus</strong>
+              <p>Beauty, confidence, and self-care.</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <h3>Send Us a Message</h3>
+          <p class="form-description">Fields marked with * are required.</p>
+
+          <label for="visitorName">Your Name *</label>
+          <input type="text" id="visitorName" name="name"
+            placeholder="Enter your name" required>
+
+          <label for="visitorEmail">Email Address *</label>
+          <input type="email" id="visitorEmail" name="email"
+            placeholder="you@example.com" required>
+
+          <label for="visitorSubject">Subject</label>
+          <input type="text" id="visitorSubject" name="subject"
+            placeholder="What would you like to ask?">
+
+          <label for="visitorMessage">Your Message *</label>
+          <textarea id="visitorMessage" name="message" rows="4"
+            placeholder="Write your message here..." required></textarea>
+
+          <button type="submit" class="btn btn-primary form-submit">
+            Send Message <span>↗</span>
+          </button>
+
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          <p class="form-disclaimer">
+            Demo form only. It will not send or store messages until connected
+            to a form service.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <a href="#home" class="brand footer-brand">
+        <!-- FOOTER LOGO: parehong image file o palitan dito -->
+        <img src="logojenpotz.png" alt="" class="brand-logo" loading="lazy">
+        <span class="brand-name">
+          JENPOTZZ
+          <small>Cosmetics Plus</small>
+        </span>
+      </a>
+
+      <p>Beauty is personal. Confidence is yours.</p>
+
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#products">Collection</a>
+        <a href="#promotions">Promotions</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© <span id="currentYear"></span> JENPOTZZ Cosmetics Plus. All rights reserved.</p>
+      <a href="#top" class="back-to-top">Back to top ↑</a>
+    </div>
+  </footer>
+  
+<!-- OWNER PHOTO ZOOM -->
+<div id="ownerPhotoZoom"
+     onclick="closeOwnerPhoto()"
+     style="display:none; position:fixed; inset:0;
+            z-index:99999; background:rgba(20,10,15,.94);
+            align-items:center; justify-content:center;
+            padding:20px; cursor:zoom-out;">
+
+  <button type="button"
+          onclick="closeOwnerPhoto()"
+          aria-label="Close zoom"
+          style="position:absolute; top:15px; right:20px;
+                 font-size:36px; color:white; background:none;
+                 border:0; cursor:pointer;">×</button>
+
+  <img src="aboutus.png"
+       alt="Enlarged owner portrait"
+       style="max-width:95%; max-height:90vh;
+              width:auto; height:auto; object-fit:contain;
+              border-radius:12px;">
+</div>
+
+<script>
+function openOwnerPhoto() {
+  const zoom = document.getElementById("ownerPhotoZoom");
+  zoom.style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+
+function closeOwnerPhoto() {
+  const zoom = document.getElementById("ownerPhotoZoom");
+  zoom.style.display = "none";
+  document.body.style.overflow = "";
+}
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") closeOwnerPhoto();
+});
+</script>
+
+</body>
+</html>

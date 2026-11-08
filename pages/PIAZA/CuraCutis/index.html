@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Glow Haven | Skincare Shop</title>
+    <meta name="description" content="Shop skincare essentials at Glow Haven. Discover cleansers, moisturizers, serums, and sunscreen.">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<header class="header">
+    <a href="#home" class="logo">Cura<span>Cutis.</span></a>
+
+    <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#products">Shop</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="cart-button" id="openCart">
+        🛍 Cart <span id="cartCount">0</span>
+    </button>
+</header>
+
+<main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <p class="eyebrow">YOUR DAILY SKINCARE RITUAL</p>
+
+            <h1>Let Your Skin<br>
+                <span>Bloom Naturally.</span>
+            </h1>
+
+            <p>
+                Discover skincare essentials that nourish,
+                hydrate, and bring out your natural glow.
+            </p>
+
+            <a href="#products" class="primary-button">
+                Shop Collection →
+            </a>
+        </div>
+
+        <div class="hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1000&q=85"
+                alt="Skincare collection">
+        </div>
+    </section>
+
+    <!-- SHOP -->
+    <section class="shop-section" id="products">
+
+        <div class="section-heading">
+            <p class="eyebrow">OUR COLLECTION</p>
+            <h2>Skincare Favorites</h2>
+            <p>Find the perfect products for your skincare routine.</p>
+        </div>
+
+        <div class="shop-tools">
+            <div class="search-box">
+                <span>🔍</span>
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search skincare products..."
+                    aria-label="Search skincare products">
+                <button id="clearSearch" aria-label="Clear search">×</button>
+            </div>
+
+            <select id="categoryFilter" aria-label="Filter products">
+                <option value="all">All Categories</option>
+                <option value="cleanser">Cleanser</option>
+                <option value="moisturizer">Moisturizer</option>
+                <option value="serum">Serum</option>
+                <option value="sunscreen">Sunscreen</option>
+            </select>
+        </div>
+
+        <p id="resultCount" class="result-count"></p>
+
+        <div class="product-grid" id="productGrid">
+
+        </div>
+
+        <p id="noResults" class="no-results" hidden>
+            No products found. Try another search.
+        </p>
+
+    </section>
+
+    <!-- PROMO -->
+    <section class="promo">
+        <div>
+            <p class="eyebrow">A LITTLE SELF-CARE</p>
+
+            <h2>Your Skin Deserves<br>Something Beautiful.</h2>
+
+            <p>
+                Enjoy 10% off your first order.
+                Use code <strong>GLOW10</strong>
+            </p>
+
+            <a href="#products" class="primary-button">
+                Explore Products
+            </a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div>
+            <p class="eyebrow">ABOUT CURA CUTIS</p>
+            <h2>Beauty Begins<br>With Self-Care.</h2>
+
+            <p>
+                Cura Cutis believes skincare is more than
+                a beauty routine. It is a moment to care
+                for yourself and celebrate your natural beauty.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+        <div class="section-heading">
+            <p class="eyebrow">WE'RE HERE TO HELP</p>
+            <h2>Contact Us</h2>
+            <p>Questions about products or orders? Send us a message.</p>
+        </div>
+
+        <form id="contactForm" class="contact-form">
+            <input
+                type="text"
+                id="contactName"
+                placeholder="Your name"
+                required>
+
+            <input
+                type="email"
+                id="contactEmail"
+                placeholder="Your email"
+                required>
+
+            <textarea
+                id="contactMessage"
+                placeholder="Your message..."
+                rows="5"
+                required></textarea>
+
+            <button class="primary-button" type="submit">
+                Send Message
+            </button>
+
+            <p id="contactStatus" class="status-message"></p>
+        </form>
+    </section>
+
+</main>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="cartOverlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+
+    <div class="cart-header">
+        <h2>Your Shopping Bag</h2>
+        <button id="closeCart" class="close-button">×</button>
+    </div>
+
+    <div id="cartItems" class="cart-items">
+        <p class="empty-cart">Your cart is currently empty.</p>
+    </div>
+
+    <div class="cart-footer">
+        <div class="total-row">
+            <span>Subtotal</span>
+            <strong id="cartSubtotal">₱0.00</strong>
+        </div>
+
+        <button id="checkoutButton" class="primary-button full-button">
+            Proceed to Checkout
+        </button>
+    </div>
+
+</aside>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkoutModal">
+
+    <div class="checkout-modal">
+
+        <div class="cart-header">
+            <h2>Checkout</h2>
+            <button id="closeCheckout" class="close-button">×</button>
+        </div>
+
+        <form id="checkoutForm">
+
+            <h3>Customer Information</h3>
+
+            <input
+                type="text"
+                id="customerName"
+                placeholder="Full name"
+                required>
+
+            <input
+                type="email"
+                id="customerEmail"
+                placeholder="Email address"
+                required>
+
+            <input
+                type="tel"
+                id="customerPhone"
+                placeholder="Phone number"
+                required>
+
+            <textarea
+                id="customerAddress"
+                placeholder="Complete delivery address"
+                rows="3"
+                required></textarea>
+
+            <h3>Payment Method</h3>
+
+            <label class="payment-option">
+                <input type="radio" name="payment" value="Cash on Delivery" checked>
+                <span>💵 Cash on Delivery (COD)</span>
+            </label>
+
+            <label class="payment-option">
+                <input type="radio" name="payment" value="GCash">
+                <span>📱 GCash</span>
+            </label>
+
+            <label class="payment-option">
+                <input type="radio" name="payment" value="Maya">
+                <span>💳 Maya</span>
+            </label>
+
+            <div class="order-summary">
+                <div class="total-row">
+                    <span>Order Total</span>
+                    <strong id="checkoutTotal">₱0.00</strong>
+                </div>
+            </div>
+
+            <button type="submit" class="primary-button full-button">
+                Place Order
+            </button>
+
+            <p class="checkout-note">
+                Demo checkout only. No actual payment is processed.
+            </p>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- ORDER SUCCESS -->
+<div class="modal-overlay" id="successModal">
+
+    <div class="success-modal">
+        <div class="success-icon">✓</div>
+
+        <h2>Thank You for Your Order!</h2>
+
+        <p id="successMessage">
+            Your order has been received.
+        </p>
+
+        <button id="continueShopping" class="primary-button">
+            Continue Shopping
+        </button>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+ <!-- GOOD LUCK SA EXAM! -->
+<footer>
+    <div class="footer-content">
+
+        <div>
+            <a href="#home" class="logo footer-logo">
+                Cura<span>Cutis.</span>
+            </a>
+
+            <p>Your beauty, your ritual, your natural glow. 😉</p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#home">Home</a>
+            <a href="#products">Shop</a>
+            <a href="#about">About Us</a>
+        </div>
+
+        <div>
+            <h3>Customer Care</h3>
+            <a href="#contact">Contact Us</a>
+            <a href="#contact">Help Center</a>
+            <a href="#contact">Shipping Information</a>
+        </div>
+
+        <div>
+            <h3>Contact</h3>
+            <p>Email: curacutis@example.com</p>
+            <p>Facebook: Cura Cutis</p>
+            <p>Instagram: @curacutis</p>
+            <p>Contact No: 0912345678</p>
+        </div>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 Cura Cutis. All rights reserved.
+    </p>
+</footer>
+
+</body>
+</html>

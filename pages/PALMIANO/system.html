@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GALES SYSTEM - PLAYER DASHBOARD</title>
+    <!-- Sci-Fi System Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+            user-select: none;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: #07060f;
+            color: #d1d5db;
+            overflow-x: hidden;
+            padding: 15px;
+        }
+
+        /* Top Navigation Bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(18, 14, 33, 0.9);
+            border: 1px solid #7000ff;
+            box-shadow: 0 0 15px rgba(112, 0, 255, 0.4);
+            padding: 12px 20px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .player-header-title {
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #7000ff, 0 0 20px #00d2ff;
+        }
+
+        .top-right-status {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .rank-badge {
+            background: rgba(112, 0, 255, 0.2);
+            border: 1px solid #00d2ff;
+            color: #00d2ff;
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px #00d2ff;
+        }
+
+        .shop-nav-btn {
+            background: linear-gradient(90deg, #7000ff, #00d2ff);
+            border: none;
+            color: #fff;
+            padding: 8px 18px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            box-shadow: 0 0 12px rgba(0, 210, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .shop-nav-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 22px rgba(0, 210, 255, 0.9);
+        }
+
+        /* Dashboard Grid Layout */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Base Panel Card Style */
+        .panel {
+            background: rgba(14, 11, 26, 0.85);
+            border: 1px solid #4a1584;
+            border-radius: 6px;
+            padding: 18px;
+            box-shadow: inset 0 0 15px rgba(112, 0, 255, 0.15), 0 0 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .panel-header {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #b873ff;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(112, 0, 255, 0.3);
+            padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Status Window Specifics */
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.8rem;
+        }
+
+        .stat-label {
+            color: #9ca3af;
+        }
+
+        .stat-value {
+            color: #00d2ff;
+            font-weight: 700;
+        }
+
+        .bar-container {
+            margin-bottom: 12px;
+        }
+
+        .bar-title {
+            font-size: 0.7rem;
+            color: #d1d5db;
+            margin-bottom: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bar-track {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(112, 0, 255, 0.5);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .bar-fill-hp {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #00d2ff, #0055ff);
+            box-shadow: 0 0 8px #00d2ff;
+        }
+
+        .bar-fill-mp {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #00d2ff, #7000ff);
+            box-shadow: 0 0 8px #7000ff;
+        }
+
+        .bar-fill-exp {
+            width: 52%;
+            height: 100%;
+            background: linear-gradient(90deg, #7000ff, #b873ff);
+            box-shadow: 0 0 8px #b873ff;
+        }
+
+        /* Grid for Stats */
+        .stats-subgrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .stat-box {
+            background: rgba(25, 18, 45, 0.6);
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            padding: 8px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-box-title {
+            font-size: 0.65rem;
+            color: #9ca3af;
+        }
+
+        .stat-box-num {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: #00d2ff;
+        }
+
+        /* Skills Section */
+        .skill-item {
+            background: rgba(20, 15, 38, 0.8);
+            border: 1px solid rgba(112, 0, 255, 0.4);
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-name {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .skill-desc {
+            font-size: 0.65rem;
+            color: #6b7280;
+        }
+
+        .skill-tag {
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            background: #7000ff;
+            color: #fff;
+            border-radius: 2px;
+        }
+
+        /* Middle Column - Shadow Army Command */
+        .arise-cmd-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #4a1584, #7000ff, #00d2ff);
+            border: 1px solid #00d2ff;
+            color: #fff;
+            font-weight: 800;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            box-shadow: 0 0 15px rgba(112, 0, 255, 0.5);
+            text-shadow: 0 0 8px #fff;
+        }
+
+        .shadow-unit {
+            background: rgba(18, 14, 33, 0.9);
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            padding: 10px 14px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .unit-name {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .unit-role {
+            font-size: 0.65rem;
+            color: #9ca3af;
+        }
+
+        .unit-rank {
+            font-size: 0.65rem;
+            color: #00d2ff;
+            border: 1px solid #00d2ff;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        /* Audio Visualizer Box */
+        .audio-box {
+            margin-top: 15px;
+            background: rgba(10, 8, 20, 0.9);
+            border: 1px solid #7000ff;
+            padding: 12px;
+            border-radius: 4px;
+        }
+
+        .visualizer-bars {
+            display: flex;
+            gap: 3px;
+            height: 25px;
+            align-items: flex-end;
+            margin: 10px 0;
+        }
+
+        .v-bar {
+            flex: 1;
+            background: #00d2ff;
+            border-radius: 2px 2px 0 0;
+            animation: bounce 1.2s infinite alternate ease-in-out;
+        }
+
+        @keyframes bounce {
+            0% { height: 15%; background: #7000ff; }
+            100% { height: 100%; background: #00d2ff; }
+        }
+
+        /* Right Column - Quests */
+        .quest-item {
+            background: rgba(20, 15, 38, 0.8);
+            border-left: 3px solid #7000ff;
+            padding: 10px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quest-title {
+            font-size: 0.75rem;
+            color: #fff;
+        }
+
+        .quest-status {
+            font-size: 0.65rem;
+            color: #ff0055;
+            border: 1px solid #ff0055;
+            padding: 2px 6px;
+            border-radius: 2px;
+        }
+
+        /* Big Action Button to Go to Shop */
+        .enter-shop-banner {
+            margin-top: 15px;
+            background: linear-gradient(90deg, rgba(112, 0, 255, 0.3), rgba(0, 210, 255, 0.3));
+            border: 2px solid #00d2ff;
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .enter-shop-banner:hover {
+            background: linear-gradient(90deg, rgba(112, 0, 255, 0.6), rgba(0, 210, 255, 0.6));
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.8);
+        }
+
+        .banner-title {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px #00d2ff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR NAVIGATION -->
+    <div class="top-bar">
+        <div class="player-header-title">⚡ PLAYER: GILBERT PALMIANO</div>
+        <div class="top-right-status">
+            <div class="rank-badge">4th Year College - BSOA (S-Rank)</div>
+            <!-- BUTTON NA DIDERETSO SA SHOP.HTML -->
+            <button class="shop-nav-btn" onclick="window.location.href='shop.html'">🛒 SYSTEM SHOP</button>
+        </div>
+    </div>
+    
+    <!-- Background Music Audio Element -->
+<audio id="bg-music" loop>
+    <source src="neffex.mp3" type="audio/mpeg">
+</audio>
+
+<button id="music-toggle-btn" class="shop-nav-btn" style="background: #7000ff;" onclick="toggleMusic()">🎵 MUSIC: OFF</button>
+
+    <!-- MAIN DASHBOARD GRID -->
+    <div class="dashboard-grid">
+
+        <!-- LEFT COLUMN: STATUS WINDOW & SKILLS -->
+        <div>
+            <div class="panel">
+                <div class="panel-header">
+                    <span>📜 STATUS WINDOW</span>
+                    <span style="color: #00d2ff;">LV. 400</span>
+                </div>
+
+                <div class="stat-row">
+                    <span class="stat-label">NAME:</span>
+                    <span class="stat-value" style="color: #fff;">Gilbert Palmiano</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">ACADEMIC LEVEL:</span>
+                    <span class="stat-value" style="color: #fff;">4th Year College</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">COURSE / PROGRAM:</span>
+                    <span class="stat-value" style="color: #fff;">BSOA Master</span>
+                </div>
+                <div class="stat-row" style="margin-bottom: 15px;">
+                    <span class="stat-label">STAT POINTS:</span>
+                    <span class="stat-value" style="color: #00e676;">15</span>
+                </div>
+
+                <!-- HP BAR -->
+                <div class="bar-container">
+                    <div class="bar-title">
+                        <span>HP (HEALTH)</span>
+                        <span>120,000 / 120,000</span>
+                    </div>
+                    <div class="bar-track"><div class="bar-fill-hp"></div></div>
+                </div>
+
+                <!-- MP BAR -->
+                <div class="bar-container">
+                    <div class="bar-title">
+                        <span>MP (MANA / ENERGY)</span>
+                        <span>252,202 / 252,202</span>
+                    </div>
+                    <div class="bar-track"><div class="bar-fill-mp"></div></div>
+                </div>
+
+                <!-- EXP BAR -->
+                <div class="bar-container">
+                    <div class="bar-title">
+                        <span>EXP PROGRESS</span>
+                        <span>5,200 / 10,000</span>
+                    </div>
+                    <div class="bar-track"><div class="bar-fill-exp"></div></div>
+                </div>
+
+                <!-- STATS SUBGRID -->
+                <div class="stats-subgrid">
+                    <div class="stat-box">
+                        <div>
+                            <div class="stat-box-title">EXECUTIVE POWER</div>
+                            <div class="stat-box-num">185</div>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div>
+                            <div class="stat-box-title">TYPING SPEED (WPM)</div>
+                            <div class="stat-box-num">195</div>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div>
+                            <div class="stat-box-title">RECORDS MANAGEMENT</div>
+                            <div class="stat-box-num">240</div>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div>
+                            <div class="stat-box-title">OFFICE STAMINA</div>
+                            <div class="stat-box-num">170</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BSOA & MONARCH SKILLS -->
+            <div class="panel" style="margin-top: 15px;">
+                <div class="panel-header">⚔️ BSOA & MONARCH SKILLS</div>
+                
+                <div class="skill-item">
+                    <div>
+                        <div class="skill-name">Speed Typing Strike</div>
+                        <div class="skill-desc">120 WPM Document Overdrive</div>
+                    </div>
+                    <div class="skill-tag">MAX</div>
+                </div>
+
+                <div class="skill-item">
+                    <div>
+                        <div class="skill-name">Records Management Domain</div>
+                        <div class="skill-desc">Instant File Retrieval Aura</div>
+                    </div>
+                    <div class="skill-tag">LV. 9</div>
+                </div>
+
+                <div class="skill-item">
+                    <div>
+                        <div class="skill-name">Executive Authority Command</div>
+                        <div class="skill-desc">Ruler's Administrative Power</div>
+                    </div>
+                    <div class="skill-tag" style="background: #00d2ff; color: #000;">MASTER</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MIDDLE COLUMN: SHADOW ARMY & AUDIO VISUALIZER -->
+        <div>
+            <div class="panel">
+                <div class="panel-header">
+                    <span>👥 SHADOW ARMY COMMAND</span>
+                    <span style="color: #00d2ff;">8 UNITS</span>
+                </div>
+
+                <button class="arise-cmd-btn">EXECUTE "ARISE" [起きよ]</button>
+
+                <div class="shadow-unit">
+                    <div>
+                        <div class="unit-name">BERU THE ANT KING</div>
+                        <div class="unit-role">Speed Transcription Master</div>
+                    </div>
+                    <div class="unit-rank">MARSHAL</div>
+                </div>
+
+                <div class="shadow-unit">
+                    <div>
+                        <div class="unit-name">SECRETARY SHADOW</div>
+                        <div class="unit-role">Executive Document Keeper</div>
+                    </div>
+                    <div class="unit-rank" style="color: #b873ff; border-color: #b873ff;">GRAND MARSHAL</div>
+                </div>
+
+                <div class="shadow-unit">
+                    <div>
+                        <div class="unit-name">IRON THE TANK</div>
+                        <div class="unit-role">Office Logistics Guard</div>
+                    </div>
+                    <div class="unit-rank">COMMANDER</div>
+                </div>
+
+                <div class="shadow-unit">
+                    <div>
+                        <div class="unit-name">TANK THE BEAST</div>
+                        <div class="unit-role">Heavy Archival Heavyweight</div>
+                    </div>
+                    <div class="unit-rank">COMMANDER</div>
+                </div>
+            </div>
+
+            <!-- AUDIO VISUALIZER BOX -->
+            <div class="panel" style="margin-top: 15px;">
+                <div class="panel-header">🎵 BGM & AUDIO VISUALIZER</div>
+                <div style="font-size: 0.7rem; color: #00d2ff;">Track: TheFatRat & Everen Maxwell - Warbringer</div>
+                
+                <div class="visualizer-bars">
+                    <div class="v-bar" style="animation-delay: 0.1s;"></div>
+                    <div class="v-bar" style="animation-delay: 0.4s;"></div>
+                    <div class="v-bar" style="animation-delay: 0.2s;"></div>
+                    <div class="v-bar" style="animation-delay: 0.6s;"></div>
+                    <div class="v-bar" style="animation-delay: 0.3s;"></div>
+                    <div class="v-bar" style="animation-delay: 0.5s;"></div>
+                    <div class="v-bar" style="animation-delay: 0.2s;"></div>
+                    <div class="v-bar" style="animation-delay: 0.7s;"></div>
+                </div>
+            </div>
+
+            <!-- CLICKABLE BANNER TO GO TO SHOP -->
+            <div class="enter-shop-banner" onclick="window.location.href='shop.html'">
+                <div class="banner-title">ENTER GALES SYSTEM SHOP ➔</div>
+                <div style="font-size: 0.7rem; color: #a0aec0; margin-top: 4px;">Click here to purchase items & upgrades</div>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: DAILY QUESTS & SYSTEM LOGS -->
+        <div>
+            <div class="panel">
+                <div class="panel-header">
+                    <span>📜 DAILY QUEST: BSOA TRAINING</span>
+                    <span style="color: #ff0055;">MANDATORY</span>
+                </div>
+
+                <div style="font-size: 0.65rem; color: #9ca3af; margin-bottom: 12px;">
+                    QUEST WARNING: Complete all BSOA daily tasks to maintain Monarch energy and level up your administrative authority.
+                </div>
+
+                <div class="quest-item">
+                    <div class="quest-title">100 Speed Typing Drills (120+ WPM)</div>
+                    <div class="quest-status">PENDING</div>
+                </div>
+
+                <div class="quest-item">
+                    <div class="quest-title">50 Records Management & Archiving Logs</div>
+                    <div class="quest-status">PENDING</div>
+                </div>
+
+                <div class="quest-item">
+                    <div class="quest-title">Executive Office Protocol & Thesis Review</div>
+                    <div class="quest-status">PENDING</div>
+                </div>
+
+                <div class="quest-item">
+                    <div class="quest-title">100 Physical Push-ups & Office Conditioning</div>
+                    <div class="quest-status">PENDING</div>
+                </div>
+            </div>
+
+            <div class="panel" style="margin-top: 15px;">
+                <div class="panel-header">📡 SYSTEM LOGS</div>
+                <div style="font-size: 0.65rem; color: #00d2ff; line-height: 1.6;">
+                    [4:02:36 PM] ARISE SUCCESSFUL: Extracted OFFICE MONARCH GUARD!<br>
+                    [4:11:05 PM] ARISE SUCCESSFUL: Extracted SHADOW TYPIST!<br>
+                    [4:11:10 PM] Loaded custom audio track: Warbringer.mp3<br>
+                    [4:11:12 PM] GALES SYSTEM V5.2 Fully Initialized.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const bgMusic = document.getElementById('bg-music');
+const musicBtn = document.getElementById('music-toggle-btn');
+let isMusicPlaying = false;
+
+function toggleMusic() {
+    if (isMusicPlaying) {
+        bgMusic.pause();
+        isMusicPlaying = false;
+        musicBtn.textContent = '🎵 MUSIC: OFF';
+    } else {
+        bgMusic.play().then(() => {
+            isMusicPlaying = true;
+            musicBtn.textContent = '🎵 MUSIC: ON';
+        }).catch(err => console.log("Audio play blocked:", err));
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const bgMusic = document.getElementById('bg-music');
+    
+    // Kunin kung naka-on ang music mula sa nakaraang page
+    const musicState = localStorage.getItem('galesMusicPlaying');
+    
+    if (musicState === 'true') {
+        bgMusic.play().catch(err => {
+            console.log("Auto-play blocked, waiting for user interaction.");
+        });
+    }
+});
+    }
+}
+    </script>
+
+</body>
+</html>

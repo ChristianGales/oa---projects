@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo Leveling System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- INTERACTIVE SHADOW PARTICLES CsANVAS -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- SCANLINE & GRID SYSTEM OVERLAY -->
+    <div class="system-grid-overlay"></div>
+
+    <!-- BACKGROUND PICTURE -->
+    <img id="image-bg" class="bg-layer active-bg" src="Neon Arcane Gamer Banner.png" alt="Solo Leveling Background">
+
+    <!-- BACKGROUND VIDEO (Login Page Background) -->
+    <video id="login-video-bg" class="bg-layer" loop muted playsinline>
+        <source src="loading.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- DARK GLOW OVERLAY -->
+    <div class="bg-overlay"></div>
+
+    <!-- GLOBAL AUDIO ELEMENT (Magsisimula na bago mag-arise) -->
+    <audio id="bg-audio" loop>
+        <source src="NEFFEX - Grateful (Airmow Remix) [Copyright Free] - NEFFEX.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="system-container">
+
+        <!-- SCREEN 1: MAIN MENU -->
+        <div id="screen-main-menu" class="screen active">
+            <div class="system-box">
+                <div class="system-header">
+                    <span class="system-badge">[ GALES SYSTEM NOTIFICATION ]</span>
+                </div>
+                <h1 class="system-title">MR.CHRISTIAN GALES<br><span class="highlight-blue">SYSTEM</span></h1>
+                <p class="system-subtitle-desc">YOU HAVE BEEN CHOSEN AS THE SHADOW MONARCH.</p>
+                <button id="btn-start-game" class="system-btn glowing-btn">
+                    <span class="btn-text">INITIALIZE GALES SYSTEM</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- SCREEN 2: SELECTION SCREEN -->
+        <div id="screen-selection" class="screen">
+            <div class="system-box">
+                <div class="system-header">
+                    <span class="system-badge">[ DAILY QUEST ASSIGNMENT ]</span>
+                </div>
+                <h2 class="system-subtitle">SELECT YOUR DESTINY</h2>
+                <p class="system-subtitle-desc">ACCEPT THE QUEST OR FACE THE PENALTY.</p>
+                <div class="btn-group">
+                    <button id="btn-choice-start" class="system-btn success">
+                        <span class="btn-text">ACCEPT (START)</span>
+                    </button>
+                    <button id="btn-choice-death" class="system-btn danger">
+                        <span class="btn-text">REFUSE (DEATH)</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 3: DEATH PENALTY (10-Second Timer) -->
+        <div id="screen-death-penalty" class="screen">
+            <div class="system-box danger-box">
+                <div class="system-header">
+                    <span class="system-badge alert">[ WARNING: PENALTY QUEST ]</span>
+                </div>
+                <h2 class="penalty-title">SURVIVAL MANDATE</h2>
+                <p class="penalty-text">YOU HAVE REFUSED THE QUEST. RESURRECTING PLAYER IN...</p>
+                <div class="timer-wrapper">
+                    <div id="penalty-timer" class="timer-display">10</div>
+                    <span class="timer-unit">SEC</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 4: ARISE ANIMATION SCREEN -->
+        <div id="screen-arise" class="screen">
+            <div class="arise-container">
+                <h1 class="arise-text">ARISE</h1>
+                <button id="btn-arise" class="system-btn arise-btn">
+                    <span class="btn-text">EXTRACT STUDENT</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- SCREEN 5: LOGIN PAGE -->
+        <div id="screen-login" class="screen">
+            <div class="system-box login-card">
+                <div class="system-header">
+                    <span class="system-badge">[ MONARCH AUTHENTICATION ]</span>
+                </div>
+                <h2 class="login-title">PLAYER LOGIN</h2>
+                
+                <form id="login-form">
+                    <div class="input-group">
+                        <label for="username">PLAYER MONARCH ID</label>
+                        <input type="text" id="username" placeholder="Enter ID (gilbert)" required autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <label for="password">PASSCODE</label>
+                        <input type="password" id="password" placeholder="•••• (1234)" required>
+                    </div>
+                    
+                    <button type="submit" class="system-btn glowing-btn">
+                        <span class="btn-text">ENTER SYSTEM</span>
+                    </button>
+                </form>
+
+                <div id="login-status-msg" class="login-msg hidden"></div>
+
+                <!-- AUDIO CONTROL PANEL -->
+                <div class="audio-controls">
+                    <button id="btn-audio-toggle" class="audio-btn">MUSIC: ON</button>
+                    <div class="volume-container">
+                        <label for="volume-slider">VOL</label>
+                        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+                    </div>
+                </div>
+
+                <div id="audio-error-msg" class="error-msg hidden">
+                    ⚠️ Music file missing or restricted by browser.
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 6: SYSTEM ACCESS GRANTED -->
+        <div id="screen-dashboard" class="screen">
+            <div class="system-box success-box">
+                <div class="system-header">
+                    <span class="system-badge success-badge">[ ACCESS GRANTED ]</span>
+                </div>
+                <h1 class="system-title">WELCOME,<br><span class="highlight-purple" id="user-display">SHADOW MONARCH</span></h1>
+                <p class="system-subtitle-desc">GALES SYSTEM FULLY SYNCHRONIZED. LEVEL UP AUTHORIZED.</p>
+                <div class="status-panel">
+                    <p><strong>SCHOOL:</strong> NSC</p>
+                    <p><strong>STUDENT:</strong> GILBERT </p>
+                    <p><strong>RANK:</strong> 4TH YEAR COLLEGE</p>
+                    <!-- Lalabas ito o pipindutin kapag papasok na sa main website -->
+<button id="btn-enter-system" class="system-btn glowing-btn" onclick="enterMainSystem()">
+    <span class="btn-text">ARISE — ENTER SYSTEM</span>
+</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
